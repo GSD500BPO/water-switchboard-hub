@@ -1,33 +1,36 @@
 import { MapPin, BarChart3, FileCheck } from "lucide-react";
-
-const steps = [
-  {
-    icon: MapPin,
-    title: "Enter Your ZIP Code",
-    description: "Start with your location to get local water quality data and testing options.",
-  },
-  {
-    icon: BarChart3,
-    title: "See Local Water Data",
-    description: "Review contaminants, hardness levels, and safety ratings for your area.",
-  },
-  {
-    icon: FileCheck,
-    title: "Request a Free Test",
-    description: "Connect with independent testers in your community — no pressure, no gimmicks.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function HowItWorks() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      icon: MapPin,
+      title: t("howItWorks.step1.title"),
+      description: t("howItWorks.step1.desc"),
+    },
+    {
+      icon: BarChart3,
+      title: t("howItWorks.step2.title"),
+      description: t("howItWorks.step2.desc"),
+    },
+    {
+      icon: FileCheck,
+      title: t("howItWorks.step3.title"),
+      description: t("howItWorks.step3.desc"),
+    },
+  ];
+
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            How It Works
+            {t("howItWorks.title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get the truth about your water in three simple steps
+            Obtén la verdad sobre tu agua en tres simples pasos
           </p>
         </div>
 

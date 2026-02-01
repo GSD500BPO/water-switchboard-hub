@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { Search, Shield, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-const trustBadges = [
-  { icon: Shield, label: "Independent" },
-  { icon: Users, label: "Community-Focused" },
-  { icon: Heart, label: "No Sales Pressure" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import heroImage from "@/assets/hero-water-testing.jpg";
 
 export function Hero() {
   const [zip, setZip] = useState("");
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const trustBadges = [
+    { icon: Shield, label: t("hero.badge.independent") },
+    { icon: Users, label: t("hero.badge.community") },
+    { icon: Heart, label: t("hero.badge.noSales") },
+  ];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,37 +25,34 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-navy-light">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <pattern id="water-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1.5" fill="currentColor" className="text-accent" />
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#water-pattern)" />
-        </svg>
+    <section className="relative overflow-hidden min-h-[600px] md:min-h-[700px]">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Water quality testing" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
       </div>
 
-      <div className="container mx-auto px-4 py-20 md:py-28 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
+        <div className="max-w-3xl">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-            What's Really In Your Water?
+            {t("hero.title")}
           </h1>
           
-          <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            Independent water quality data for your ZIP code. Get the facts before 
-            the sales pitch.
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl">
+            {t("hero.subtitle")}
           </p>
 
           {/* ZIP Search Form */}
-          <form onSubmit={handleSearch} className="max-w-md mx-auto mb-10">
+          <form onSubmit={handleSearch} className="max-w-md mb-10">
             <div className="flex gap-2 bg-card rounded-lg p-2 shadow-lg">
               <Input
                 type="text"
-                placeholder="Enter your ZIP code"
+                placeholder={t("hero.zipPlaceholder")}
                 value={zip}
                 onChange={(e) => setZip(e.target.value.replace(/\D/g, "").slice(0, 5))}
                 className="flex-1 border-0 text-lg h-12 bg-transparent focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
@@ -65,15 +65,15 @@ export function Hero() {
                 disabled={zip.length !== 5}
               >
                 <Search className="h-5 w-5 mr-2" />
-                Search
+                {t("hero.search")}
               </Button>
             </div>
           </form>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <div className="flex flex-wrap gap-6 md:gap-10">
             {trustBadges.map((badge) => (
-              <div key={badge.label} className="flex items-center gap-2 text-primary-foreground/80">
+              <div key={badge.label} className="flex items-center gap-2 text-primary-foreground/90">
                 <badge.icon className="h-5 w-5" />
                 <span className="text-sm font-medium">{badge.label}</span>
               </div>

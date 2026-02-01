@@ -1,6 +1,7 @@
 import { AlertTriangle, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Mock data - will be replaced with real data later
 const alerts = [
@@ -9,24 +10,24 @@ const alerts = [
     city: "Phoenix, AZ",
     type: "PFAS Detection",
     severity: "warning",
-    date: "Jan 28, 2026",
-    description: "Elevated PFAS levels detected in municipal water supply.",
+    date: "Ene 28, 2026",
+    description: "Niveles elevados de PFAS detectados en el suministro de agua municipal.",
   },
   {
     id: 2,
     city: "Austin, TX",
     type: "Lead Advisory",
     severity: "critical",
-    date: "Jan 25, 2026",
-    description: "Lead levels above EPA action limit in older neighborhoods.",
+    date: "Ene 25, 2026",
+    description: "Niveles de plomo por encima del límite de acción de la EPA en vecindarios antiguos.",
   },
   {
     id: 3,
     city: "Denver, CO",
     type: "Hard Water Alert",
     severity: "info",
-    date: "Jan 22, 2026",
-    description: "High mineral content reported; may affect appliances.",
+    date: "Ene 22, 2026",
+    description: "Alto contenido mineral reportado; puede afectar electrodomésticos.",
   },
 ];
 
@@ -37,15 +38,17 @@ const severityColors = {
 };
 
 export function WaterAlerts() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Recent Water Quality Alerts
+            {t("alerts.title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Stay informed about water quality issues across the country
+            Mantente informado sobre problemas de calidad del agua en todo el país
           </p>
         </div>
 

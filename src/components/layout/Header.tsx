@@ -2,30 +2,31 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import cwtLogo from "@/assets/cwt-logo.png";
-
-const navLinks = [
-  { href: "/water-testing", label: "Water Testing" },
-  { href: "/filters", label: "Filters" },
-  { href: "/cost-guides", label: "Cost Guides" },
-  { href: "/scam-alerts", label: "Scam Alerts" },
-  { href: "/about", label: "About" },
-];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"en" | "es">("en");
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { href: "/water-testing", label: t("nav.waterTesting") },
+    { href: "/filters", label: t("nav.filters") },
+    { href: "/cost-guides", label: t("nav.costGuides") },
+    { href: "/scam-alerts", label: t("nav.scamAlerts") },
+    { href: "/about", label: t("nav.about") },
+  ];
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "es" : "en"));
+    setLanguage(language === "en" ? "es" : "en");
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card shadow-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Logo */}
+        {/* Logo - Bigger */}
         <Link to="/" className="flex items-center gap-2">
-          <img src={cwtLogo} alt="Community Water Test" className="h-10 w-auto" />
+          <img src={cwtLogo} alt="Community Water Test" className="h-14 md:h-16 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
