@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // CWT Brand Colors (for direct access)
+        navy: {
+          DEFAULT: "hsl(209 54% 23%)",
+          light: "hsl(209 54% 30%)",
+          dark: "hsl(209 54% 15%)",
+        },
+        sky: {
+          DEFAULT: "hsl(204 61% 56%)",
+          light: "hsl(204 61% 70%)",
+          dark: "hsl(204 61% 45%)",
+        },
+        water: {
+          DEFAULT: "hsl(197 67% 70%)",
+          light: "hsl(197 67% 85%)",
+          dark: "hsl(197 67% 55%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
