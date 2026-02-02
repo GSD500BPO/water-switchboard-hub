@@ -1,13 +1,13 @@
-import { X, MapPin, Calendar, ExternalLink, AlertTriangle, ShieldCheck, ShieldAlert } from "lucide-react";
+import { MapPin, Calendar, ExternalLink, AlertTriangle, ShieldCheck, ShieldAlert, Award, CheckCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScamArticle, categoryLabels, locationLabels } from "@/data/scamData";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useDealer } from "@/contexts/DealerContext";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { translations } from "@/lib/translations";
 
 interface ScamDetailModalProps {
   scam: ScamArticle | null;
@@ -27,8 +27,7 @@ const categoryColors: Record<string, string> = {
 
 export function ScamDetailModal({ scam, isOpen, onClose }: ScamDetailModalProps) {
   const { language } = useLanguage();
-  const { isDealerMode } = useDealer();
-
+  const t = translations[language];
   if (!scam) return null;
 
   const formatDate = (dateString: string) => {
@@ -147,33 +146,38 @@ export function ScamDetailModal({ scam, isOpen, onClose }: ScamDetailModalProps)
           )}
         </ScrollArea>
 
-        {/* CTA Section */}
-        <div className="p-6 pt-4 border-t bg-muted/30">
+        {/* CTA Section - Technician of the Month */}
+        <div className="p-6 pt-4 border-t bg-gradient-to-r from-primary/5 to-secondary/5">
           <div className="text-center">
-            <h4 className="font-semibold mb-2">
-              {language === "es" 
-                ? "¿Preocupado por tu agua? Obtén una prueba REAL." 
-                : "Worried about your water? Get a REAL test."}
-            </h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              {language === "es"
-                ? "No confíes en vendedores puerta a puerta. Usa un kit de prueba certificado o solicita una prueba gratuita de un experto verificado."
-                : "Don't trust door-to-door salespeople. Use a certified test kit or request a free test from a verified expert."}
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {!isDealerMode && (
-                <Button asChild>
-                  <Link to="/#tests">
-                    {language === "es" ? "Ordenar Kit Certificado" : "Order Certified Kit"}
-                  </Link>
-                </Button>
-              )}
-              <Button variant={isDealerMode ? "default" : "secondary"} asChild>
-                <Link to="/#tests">
-                  {language === "es" ? "Solicitar Prueba Gratis" : "Request Free Test"}
-                </Link>
-              </Button>
+            {/* Technician of the Month Badge */}
+            <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded-full mb-3">
+              <Award className="h-4 w-4" />
+              <span className="text-sm font-semibold">{t["scams.techOfMonth"]}</span>
             </div>
+            
+            <h4 className="font-semibold mb-2 text-lg">
+              {t["scams.ctaTitle"]}
+            </h4>
+            <p className="text-sm text-muted-foreground mb-3">
+              {t["scams.ctaDesc"]}
+            </p>
+            
+            {/* Verified Badge */}
+            <div className="flex justify-center items-center gap-2 text-xs text-green-600 mb-4">
+              <CheckCircle className="h-4 w-4" />
+              <span>{t["scams.verifiedBadge"]}</span>
+            </div>
+            
+            <Button asChild size="lg" className="mb-3">
+              <Link to="/#tests">
+                {t["scams.meetExpert"]}
+              </Link>
+            </Button>
+            
+            {/* Disclaimer */}
+            <p className="text-xs text-muted-foreground mt-3 max-w-md mx-auto">
+              {t["scams.ctaDisclaimer"]}
+            </p>
           </div>
         </div>
       </DialogContent>

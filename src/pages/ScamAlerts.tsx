@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { AlertTriangle, Shield, Search } from "lucide-react";
+import { AlertTriangle, Shield, Search, Award, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
@@ -9,13 +9,11 @@ import { ScamFilters } from "@/components/scam-alerts/ScamFilters";
 import { ScamDetailModal } from "@/components/scam-alerts/ScamDetailModal";
 import { scamArticles, ScamArticle, ScamCategory, ScamLocation } from "@/data/scamData";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useDealer } from "@/contexts/DealerContext";
 import { Link } from "react-router-dom";
-
+import { translations } from "@/lib/translations";
 export default function ScamAlerts() {
   const { language } = useLanguage();
-  const { isDealerMode } = useDealer();
-  
+  const t = translations[language];
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocations, setSelectedLocations] = useState<ScamLocation[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<ScamCategory[]>([]);
@@ -200,38 +198,38 @@ export default function ScamAlerts() {
                 )
               )}
 
-              {/* Safe Testing CTA */}
-              <Card className="mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+              {/* Technician of the Month CTA */}
+              <Card className="mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-secondary/20">
                 <CardContent className="p-6 text-center">
-                  <Shield className="h-12 w-12 text-secondary mx-auto mb-4" />
+                  {/* Technician of the Month Badge */}
+                  <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-4">
+                    <Award className="h-5 w-5" />
+                    <span className="font-semibold">{t["scams.techOfMonth"]}</span>
+                  </div>
+                  
                   <h3 className="text-xl font-bold mb-2">
-                    {language === "es"
-                      ? "¿Preocupado por tu agua? Obtén una prueba REAL."
-                      : "Worried about your water? Get a REAL test."}
+                    {t["scams.ctaTitle"]}
                   </h3>
                   <p className="text-muted-foreground mb-4 max-w-lg mx-auto">
-                    {language === "es"
-                      ? "No confíes en vendedores puerta a puerta. Usa un kit de prueba certificado de un laboratorio acreditado o solicita una prueba gratuita de un experto verificado por la EPA."
-                      : "Don't trust door-to-door salespeople. Use a certified test kit from an accredited lab or request a free test from an EPA-verified expert."}
+                    {t["scams.ctaDesc"]}
                   </p>
-                  <div className="flex flex-wrap justify-center gap-3">
-                    {!isDealerMode && (
-                      <Button asChild size="lg">
-                        <Link to="/#tests">
-                          {language === "es" ? "Ordenar Kit Certificado" : "Order Certified Kit"}
-                        </Link>
-                      </Button>
-                    )}
-                    <Button
-                      variant={isDealerMode ? "default" : "secondary"}
-                      size="lg"
-                      asChild
-                    >
-                      <Link to="/#tests">
-                        {language === "es" ? "Solicitar Prueba Gratis" : "Request Free Test"}
-                      </Link>
-                    </Button>
+                  
+                  {/* Verified Badge */}
+                  <div className="flex justify-center items-center gap-2 text-sm text-green-600 mb-5">
+                    <CheckCircle className="h-5 w-5" />
+                    <span className="font-medium">{t["scams.verifiedBadge"]}</span>
                   </div>
+                  
+                  <Button size="lg" asChild>
+                    <Link to="/#tests">
+                      {t["scams.meetExpert"]}
+                    </Link>
+                  </Button>
+                  
+                  {/* Disclaimer */}
+                  <p className="text-xs text-muted-foreground mt-4 max-w-md mx-auto">
+                    {t["scams.ctaDisclaimer"]}
+                  </p>
                 </CardContent>
               </Card>
             </main>

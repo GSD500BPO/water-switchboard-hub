@@ -71,12 +71,14 @@ export type TranslationKey =
   | "scams.warningSigns"
   | "scams.safetyTips"
   | "scams.source"
-  | "scams.orderKit"
   | "scams.freeTest"
   | "scams.ctaTitle"
   | "scams.ctaDesc"
   | "scams.ctaDescDealer"
-  | "scams.ctaDisclaimer";
+  | "scams.ctaDisclaimer"
+  | "scams.meetExpert"
+  | "scams.techOfMonth"
+  | "scams.verifiedBadge";
 
 type Translations = {
   [lang: string]: {
@@ -158,12 +160,14 @@ export const translations: Translations = {
     "scams.warningSigns": "Señales de Advertencia",
     "scams.safetyTips": "Consejos de Seguridad",
     "scams.source": "Fuente",
-    "scams.orderKit": "Ordenar Kit Certificado",
     "scams.freeTest": "Solicitar Prueba Gratis",
-    "scams.ctaTitle": "¿Preocupado por tu agua? Obtén una prueba REAL.",
-    "scams.ctaDesc": "Ordena tu prueba certificada de representantes verificados con sello de aprobación que siguen las mejores prácticas de la industria.",
-    "scams.ctaDescDealer": "Solicita una prueba gratuita de nuestros representantes verificados con sello de aprobación que siguen las mejores prácticas de la industria.",
+    "scams.ctaTitle": "¿Preocupado por tu agua? Habla con un experto REAL.",
+    "scams.ctaDesc": "Conoce a nuestro Profesional Verificado del Mes - confiado por familias como la tuya con testimonios reales y clientes felices.",
+    "scams.ctaDescDealer": "Conoce a nuestro Profesional Verificado del Mes - confiado por familias como la tuya con testimonios reales y clientes felices.",
     "scams.ctaDisclaimer": "Después de la prueba, tu representante te presentará opciones de filtros y puede dejar folletos informativos - esta consulta transparente es parte del servicio.",
+    "scams.meetExpert": "Conocer a Nuestro Experto",
+    "scams.techOfMonth": "Profesional Verificado del Mes",
+    "scams.verifiedBadge": "Verificado EPA + Antecedentes",
   },
   en: {
     "hero.title": "What's Really In Your Water?",
@@ -238,11 +242,13 @@ export const translations: Translations = {
     "scams.warningSigns": "Warning Signs",
     "scams.safetyTips": "Safety Tips",
     "scams.source": "Source",
-    "scams.orderKit": "Order Certified Kit",
     "scams.freeTest": "Request Free Test",
-    "scams.ctaTitle": "Worried about your water? Get a REAL test.",
-    "scams.ctaDesc": "Order your certified test from seal-of-approval verified representatives who follow industry best practices.",
-    "scams.ctaDescDealer": "Request a free test from our seal-of-approval verified representatives who follow industry best practices.",
+    "scams.ctaTitle": "Worried about your water? Talk to a REAL expert.",
+    "scams.ctaDesc": "Meet our Verified Professional of the Month - trusted by families like yours with real testimonials and happy clients.",
+    "scams.ctaDescDealer": "Meet our Verified Professional of the Month - trusted by families like yours with real testimonials and happy clients.",
     "scams.ctaDisclaimer": "After testing, your representative will present filter options and may leave informational brochures - this transparent consultation is part of the service.",
+    "scams.meetExpert": "Meet Our Expert",
+    "scams.techOfMonth": "Verified Professional of the Month",
+    "scams.verifiedBadge": "EPA + Background Verified",
   },
 };

@@ -55,11 +55,11 @@ export const scamArticles: ScamArticle[] = [
     votes: 2847,
     isPinned: true,
     summary: {
-      en: "Detectives in Belleville, NJ caught scammers trying to sell $12,000 filter systems using aggressive tactics and fake government claims. Learn how to protect yourself.",
+      en: "Detectives in Belleville, NJ caught scammers trying to sell overpriced filter systems using aggressive tactics and fake government claims. Learn how to protect yourself.",
       es: "Detectives en Belleville, NJ atraparon estafadores tratando de vender sistemas de filtros de $12,000 usando tácticas agresivas y afirmaciones falsas del gobierno. Aprende cómo protegerte."
     },
     content: {
-      en: `Police and the mayor of Belleville, New Jersey recently warned residents about door-to-door water testing scammers. Detectives posing as homeowners discovered that salespeople were claiming residents would need a filter system for every faucet in the house, costing around $12,000. The salespeople were aggressive and falsely claimed to work for the township or the state.
+      en: `Police and the mayor of Belleville, New Jersey recently warned residents about door-to-door water testing scammers. Detectives posing as homeowners discovered that salespeople were claiming residents would need a filter system for every faucet in the house at unusually high prices. The salespeople were aggressive and falsely claimed to work for the township or the state.
 
 **How to Spot a Scam:**
 
@@ -74,7 +74,7 @@ export const scamArticles: ScamArticle[] = [
 **Government Claims are Fake:** The government does not endorse water tests or treatment products. An EPA registration number does not mean a product has been tested or approved.
 
 The Water Quality Association (WQA) has stated: "The Water Quality Association does not solicit door-to-door, period."`,
-      es: `La policía y el alcalde de Belleville, Nueva Jersey, advirtieron recientemente a los residentes sobre estafadores de pruebas de agua puerta a puerta. Detectives haciéndose pasar por propietarios descubrieron que los vendedores afirmaban que los residentes necesitarían un sistema de filtro para cada grifo de la casa, costando alrededor de $12,000. Los vendedores eran agresivos y afirmaban falsamente trabajar para el municipio o el estado.
+      es: `La policía y el alcalde de Belleville, Nueva Jersey, advirtieron recientemente a los residentes sobre estafadores de pruebas de agua puerta a puerta. Detectives haciéndose pasar por propietarios descubrieron que los vendedores afirmaban que los residentes necesitarían un sistema de filtro para cada grifo de la casa a precios inusualmente altos. Los vendedores eran agresivos y afirmaban falsamente trabajar para el municipio o el estado.
 
 **Cómo Identificar una Estafa:**
 
@@ -96,14 +96,14 @@ La Asociación de Calidad del Agua (WQA) ha declarado: "La Asociación de Calida
         "They use color-changing tablets or drops to 'test' your water",
         "High-pressure tactics to make immediate decisions",
         "No visible permit or ID badge",
-        "Prices in the $6,000-$12,000 range for basic filtration"
+        "Unusually high prices with no written quote provided"
       ],
       es: [
         "El vendedor afirma trabajar para el gobierno o el departamento de salud",
         "Usan tabletas o gotas que cambian de color para 'probar' tu agua",
         "Tácticas de alta presión para tomar decisiones inmediatas",
         "Sin permiso visible o credencial de identificación",
-        "Precios en el rango de $6,000-$12,000 para filtración básica"
+        "Precios inusualmente altos sin cotización escrita"
       ]
     },
     safetyTips: {
@@ -111,13 +111,13 @@ La Asociación de Calidad del Agua (WQA) ha declarado: "La Asociación de Calida
         "Never let unknown salespeople inside your home",
         "Ask for permits and identification",
         "Contact local authorities if you feel uncomfortable",
-        "Order a certified at-home water test kit instead"
+        "Request a free test from a verified professional instead"
       ],
       es: [
         "Nunca dejes entrar a vendedores desconocidos a tu casa",
         "Pide permisos e identificación",
         "Contacta a las autoridades locales si te sientes incómodo",
-        "Ordena un kit de prueba de agua certificado en su lugar"
+        "Solicita una prueba gratuita de un profesional verificado"
       ]
     }
   },
@@ -306,7 +306,7 @@ El Director de Provo Power, Scott Bunker, advirtió a los clientes sobre estafad
     content: {
       en: `**The Survey Sheet Scam:**
 
-Salespeople use carefully designed "survey sheets" to convince you to buy overpriced water treatment systems ($6,000 to $10,000). Here's what they ask:
+Salespeople use carefully designed "survey sheets" to convince you to buy overpriced water treatment systems. Here's what they ask:
 
 - **Soaps and cleaners:** "How much do you spend?" They'll claim you'll save 80% (~$100/month)
 - **Bottled water:** Minimum $10/month you'll "save"
@@ -325,10 +325,10 @@ Salespeople use carefully designed "survey sheets" to convince you to buy overpr
 After all this, they present their chart showing you'll "save" over $100/month. They say the system "only costs a dollar a day"—but payments are actually $125-$175/month. The math is designed to confuse you.
 
 **The Reality:**
-Most homes don't need $10,000 water treatment systems. A simple water test from a certified lab will tell you exactly what (if anything) you need.`,
+Most homes don't need expensive water treatment systems. A simple water test from a verified professional will tell you exactly what (if anything) you need.`,
       es: `**La Estafa de la Hoja de Encuesta:**
 
-Los vendedores usan "hojas de encuesta" cuidadosamente diseñadas para convencerte de comprar sistemas de tratamiento de agua sobrevalorados ($6,000 a $10,000). Esto es lo que preguntan:
+Los vendedores usan "hojas de encuesta" cuidadosamente diseñadas para convencerte de comprar sistemas de tratamiento de agua sobrevalorados. Esto es lo que preguntan:
 
 - **Jabones y limpiadores:** "¿Cuánto gastas?" Afirmarán que ahorrarás 80% (~$100/mes)
 - **Agua embotellada:** Mínimo $10/mes que "ahorrarás"
@@ -347,21 +347,21 @@ Los vendedores usan "hojas de encuesta" cuidadosamente diseñadas para convencer
 Después de todo esto, presentan su tabla mostrando que "ahorrarás" más de $100/mes. Dicen que el sistema "solo cuesta un dólar al día"—pero los pagos son en realidad $125-$175/mes. Las matemáticas están diseñadas para confundirte.
 
 **La Realidad:**
-La mayoría de los hogares no necesitan sistemas de tratamiento de agua de $10,000. Una simple prueba de agua de un laboratorio certificado te dirá exactamente qué (si algo) necesitas.`
+La mayoría de los hogares no necesitan sistemas de tratamiento de agua costosos. Una simple prueba de agua de un profesional verificado te dirá exactamente qué (si algo) necesitas.`
     },
     warningSigns: {
       en: [
         "Survey asking about household spending",
         "Color-changing demonstrations",
         "Claims of 80-90% savings on household products",
-        "Prices between $6,000-$10,000",
+        "Unusually high pricing with pressure tactics",
         "Presentations lasting 2+ hours"
       ],
       es: [
         "Encuesta preguntando sobre gastos del hogar",
         "Demostraciones que cambian de color",
         "Afirmaciones de 80-90% de ahorro en productos del hogar",
-        "Precios entre $6,000-$10,000",
+        "Precios inusualmente altos con tácticas de presión",
         "Presentaciones que duran más de 2 horas"
       ]
     },
