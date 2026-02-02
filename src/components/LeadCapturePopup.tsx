@@ -39,11 +39,20 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
     
     // TODO: Send to Supabase edge function for Zoho CRM integration
     
+    // Mark as submitted so we don't show popup again
+    localStorage.setItem("cwt_lead_submitted", "true");
+    localStorage.setItem("cwt_lead_email", email);
+    localStorage.setItem("cwt_lead_zip", zip);
+    
     setIsSubmitting(false);
     onClose();
   };
 
-  if (!isOpen) return null;
+  // Check if user already submitted
+  const hasSubmitted = localStorage.getItem("cwt_lead_submitted") === "true";
+
+  // Don't show if already submitted or not open
+  if (!isOpen || hasSubmitted) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">

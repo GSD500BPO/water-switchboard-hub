@@ -8,7 +8,6 @@ export function Footer() {
   const quickLinks = [
     { href: "/water-testing", label: t("nav.waterTesting") },
     { href: "/filters", label: t("nav.filters") },
-    { href: "/cost-guides", label: t("nav.costGuides") },
     { href: "/scam-alerts", label: t("nav.scamAlerts") },
   ];
 
@@ -28,7 +27,7 @@ export function Footer() {
               <img 
                 src={cwtLogo} 
                 alt="Community Water Test" 
-                className="h-16 md:h-20 w-auto brightness-0 invert" 
+                className="h-24 md:h-32 w-auto brightness-0 invert" 
               />
             </Link>
             <p className="text-primary-foreground/80 text-sm max-w-md">

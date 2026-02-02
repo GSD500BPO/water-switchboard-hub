@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import cwtLogo from "@/assets/cwt-logo.png";
+
+// Check if user already submitted lead form
+const hasSubmittedLead = () => {
+  return localStorage.getItem("cwt_lead_submitted") === "true";
+};
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,6 +24,8 @@ export function Header() {
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "es" : "en");
   };
+
+  const ctaLabel = language === "es" ? "Agenda Tu Prueba" : "Schedule Real Test";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card shadow-sm">
@@ -41,8 +48,19 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Language Toggle & Mobile Menu */}
+        {/* CTA Button + Language Toggle */}
         <div className="flex items-center gap-2">
+          {/* Schedule Test CTA - Desktop */}
+          <Button
+            asChild
+            className="hidden md:flex bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
+          >
+            <Link to="/#tests">
+              <Calendar className="h-4 w-4 mr-2" />
+              {ctaLabel}
+            </Link>
+          </Button>
+
           <Button
             variant="ghost"
             size="sm"
@@ -79,6 +97,17 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            {/* Schedule Test CTA - Mobile */}
+            <Button
+              asChild
+              className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold mt-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Link to="/#tests">
+                <Calendar className="h-4 w-4 mr-2" />
+                {ctaLabel}
+              </Link>
+            </Button>
           </div>
         </nav>
       )}
