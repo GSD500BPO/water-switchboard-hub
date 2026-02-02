@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Beaker, AlertTriangle, Bug, Thermometer, FlaskConical, Activity, Droplets, ClipboardCheck, HelpCircle, Phone } from "lucide-react";
+import { Beaker, AlertTriangle, Bug, Thermometer, FlaskConical, Activity, Droplets, ClipboardCheck, HelpCircle, Phone, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDealer } from "@/contexts/DealerContext";
+import { ZohoFormEmbed } from "@/components/ZohoFormEmbed";
 
 const testTypes = [
   {
@@ -65,85 +66,84 @@ const testTypes = [
 ];
 
 export function WaterTestingServices() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { isDealerMode } = useDealer();
 
   return (
-    <section className="py-16 md:py-24 bg-muted">
+    <section id="tests" className="py-16 md:py-24 bg-muted">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {t("tests.title")}
+            {language === "es" ? "Agenda Tu Prueba de Agua Certificada" : "Setup Your Certified Water Test"}
           </h2>
           <p className="text-lg text-muted-foreground">
-            {isDealerMode ? t("tests.subtitleDealer") : t("tests.subtitle")}
+            {language === "es" 
+              ? "Nuestros profesionales verificados te ayudarán a entender tu calidad de agua sin presión de ventas."
+              : "Our verified professionals will help you understand your water quality without sales pressure."
+            }
           </p>
-          {!isDealerMode && (
-            <p className="text-sm text-secondary mt-2 font-medium">
-              {t("tests.contact")}
+          <div className="flex justify-center items-center gap-2 text-sm text-green-600 mt-3">
+            <CheckCircle className="h-5 w-5" />
+            <span className="font-medium">
+              {language === "es" ? "Verificado EPA + Antecedentes" : "EPA + Background Verified"}
+            </span>
+          </div>
+        </div>
+
+        {/* Zoho Form Embed - Primary CTA */}
+        <Card className="max-w-2xl mx-auto mb-12 border-secondary/20">
+          <CardContent className="p-6">
+            <ZohoFormEmbed height="500px" />
+            <p className="text-xs text-muted-foreground mt-4 text-center max-w-md mx-auto">
+              {language === "es" 
+                ? "Después de la prueba, tu representante te presentará opciones de filtros y puede dejar folletos informativos - esta consulta transparente es parte del servicio."
+                : "After testing, your representative will present filter options and may leave informational brochures - this transparent consultation is part of the service."
+              }
             </p>
-          )}
+          </CardContent>
+        </Card>
+
+        {/* Test Types Info Grid */}
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-xl font-semibold text-center mb-6 text-foreground">
+            {language === "es" ? "Tipos de Pruebas Disponibles" : "Available Test Types"}
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {testTypes.map((test) => (
+              <div
+                key={test.id}
+                className="flex flex-col items-center p-4 bg-card rounded-lg border hover:shadow-md transition-shadow"
+              >
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
+                  <test.icon className="h-5 w-5 text-primary" />
+                </div>
+                <span className="text-sm font-medium text-center text-foreground">
+                  {t(test.titleKey)}
+                </span>
+                {test.featured && (
+                  <span className="text-xs text-secondary font-medium mt-1">
+                    {language === "es" ? "Popular" : "Popular"}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Test Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {testTypes.map((test) => (
-            <Card
-              key={test.id}
-              className={`relative overflow-hidden transition-all hover:shadow-lg ${
-                test.featured ? "ring-2 ring-secondary" : ""
-              }`}
-            >
-              {test.featured && (
-                <div className="absolute top-0 right-0 bg-secondary text-secondary-foreground text-xs font-semibold px-3 py-1 rounded-bl-lg">
-                  Popular
-                </div>
-              )}
-              <CardHeader className="pb-2">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
-                  <test.icon className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">{t(test.titleKey)}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-sm">
-                  {t(test.descKey)}
-                </CardDescription>
-              </CardContent>
-              <CardFooter className="flex gap-2">
-                <Button variant="outline" size="sm" className="flex-1" asChild>
-                  <Link to={`/tests/${test.id}`}>
-                    {t("tests.learnMore")}
-                  </Link>
-                </Button>
-                <Button size="sm" className="flex-1 bg-secondary hover:bg-secondary/90">
-                  {t("tests.requestTest")}
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-
-        {/* Unsure Section - Different CTA for dealer mode */}
-        <Card className="max-w-2xl mx-auto bg-primary text-primary-foreground">
+        {/* Unsure Section */}
+        <Card className="max-w-2xl mx-auto mt-8 bg-primary text-primary-foreground">
           <CardContent className="p-8 text-center">
             <HelpCircle className="h-12 w-12 mx-auto mb-4 opacity-80" />
             <h3 className="text-xl font-bold mb-2">
               {t("tests.unsure.title")}
             </h3>
             <p className="opacity-80 mb-4">
-              {isDealerMode ? t("tests.unsure.descDealer") : t("tests.unsure.desc")}
+              {language === "es" 
+                ? "Llena el formulario arriba y nuestro experto te ayudará a determinar qué análisis necesitas."
+                : "Fill out the form above and our expert will help determine which analysis you need."
+              }
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
-                variant="secondary"
-                className="bg-card text-foreground hover:bg-card/90"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                {t("tests.freeTest")}
-              </Button>
-            </div>
           </CardContent>
         </Card>
       </div>

@@ -25,7 +25,7 @@ export function Header() {
     setLanguage(language === "en" ? "es" : "en");
   };
 
-  const ctaLabel = language === "es" ? "Agenda Tu Prueba" : "Schedule Real Test";
+  const ctaLabel = language === "es" ? "Agenda Tu Prueba Certificada" : "Setup Certified Test";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card shadow-sm">

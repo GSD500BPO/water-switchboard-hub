@@ -1,13 +1,12 @@
 import { MapPin, Calendar, ExternalLink, AlertTriangle, ShieldCheck, ShieldAlert, Award, CheckCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScamArticle, categoryLabels, locationLabels } from "@/data/scamData";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { translations } from "@/lib/translations";
+import { ZohoFormEmbed } from "@/components/ZohoFormEmbed";
 
 interface ScamDetailModalProps {
   scam: ScamArticle | null;
@@ -146,10 +145,10 @@ export function ScamDetailModal({ scam, isOpen, onClose }: ScamDetailModalProps)
           )}
         </ScrollArea>
 
-        {/* CTA Section - Technician of the Month */}
+        {/* CTA Section - Certified Test Form */}
         <div className="p-6 pt-4 border-t bg-gradient-to-r from-primary/5 to-secondary/5">
-          <div className="text-center">
-            {/* Technician of the Month Badge */}
+          <div className="text-center mb-4">
+            {/* Verified Badge */}
             <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded-full mb-3">
               <Award className="h-4 w-4" />
               <span className="text-sm font-semibold">{t["scams.techOfMonth"]}</span>
@@ -158,27 +157,24 @@ export function ScamDetailModal({ scam, isOpen, onClose }: ScamDetailModalProps)
             <h4 className="font-semibold mb-2 text-lg">
               {t["scams.ctaTitle"]}
             </h4>
-            <p className="text-sm text-muted-foreground mb-3">
+            <p className="text-sm text-muted-foreground mb-2">
               {t["scams.ctaDesc"]}
             </p>
             
             {/* Verified Badge */}
-            <div className="flex justify-center items-center gap-2 text-xs text-green-600 mb-4">
+            <div className="flex justify-center items-center gap-2 text-xs text-green-600">
               <CheckCircle className="h-4 w-4" />
               <span>{t["scams.verifiedBadge"]}</span>
             </div>
-            
-            <Button asChild size="lg" className="mb-3">
-              <Link to="/#tests">
-                {t["scams.meetExpert"]}
-              </Link>
-            </Button>
-            
-            {/* Disclaimer */}
-            <p className="text-xs text-muted-foreground mt-3 max-w-md mx-auto">
-              {t["scams.ctaDisclaimer"]}
-            </p>
           </div>
+          
+          {/* Embedded Zoho Form */}
+          <ZohoFormEmbed height="450px" />
+          
+          {/* Disclaimer */}
+          <p className="text-xs text-muted-foreground mt-3 max-w-md mx-auto text-center">
+            {t["scams.ctaDisclaimer"]}
+          </p>
         </div>
       </DialogContent>
     </Dialog>

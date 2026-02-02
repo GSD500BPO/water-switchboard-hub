@@ -11,6 +11,8 @@ import { scamArticles, ScamArticle, ScamCategory, ScamLocation } from "@/data/sc
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { translations } from "@/lib/translations";
+import { ZohoFormEmbed } from "@/components/ZohoFormEmbed";
+
 export default function ScamAlerts() {
   const { language } = useLanguage();
   const t = translations[language];
@@ -198,36 +200,35 @@ export default function ScamAlerts() {
                 )
               )}
 
-              {/* Technician of the Month CTA */}
+              {/* Certified Test CTA with Zoho Form */}
               <Card className="mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-secondary/20">
-                <CardContent className="p-6 text-center">
-                  {/* Technician of the Month Badge */}
-                  <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-4">
-                    <Award className="h-5 w-5" />
-                    <span className="font-semibold">{t["scams.techOfMonth"]}</span>
+                <CardContent className="p-6">
+                  {/* Header */}
+                  <div className="text-center mb-4">
+                    <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-4">
+                      <Award className="h-5 w-5" />
+                      <span className="font-semibold">{t["scams.techOfMonth"]}</span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-2">
+                      {t["scams.ctaTitle"]}
+                    </h3>
+                    <p className="text-muted-foreground mb-2 max-w-lg mx-auto">
+                      {t["scams.ctaDesc"]}
+                    </p>
+                    
+                    {/* Verified Badge */}
+                    <div className="flex justify-center items-center gap-2 text-sm text-green-600">
+                      <CheckCircle className="h-5 w-5" />
+                      <span className="font-medium">{t["scams.verifiedBadge"]}</span>
+                    </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-2">
-                    {t["scams.ctaTitle"]}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 max-w-lg mx-auto">
-                    {t["scams.ctaDesc"]}
-                  </p>
-                  
-                  {/* Verified Badge */}
-                  <div className="flex justify-center items-center gap-2 text-sm text-green-600 mb-5">
-                    <CheckCircle className="h-5 w-5" />
-                    <span className="font-medium">{t["scams.verifiedBadge"]}</span>
-                  </div>
-                  
-                  <Button size="lg" asChild>
-                    <Link to="/#tests">
-                      {t["scams.meetExpert"]}
-                    </Link>
-                  </Button>
+                  {/* Embedded Zoho Form */}
+                  <ZohoFormEmbed height="500px" />
                   
                   {/* Disclaimer */}
-                  <p className="text-xs text-muted-foreground mt-4 max-w-md mx-auto">
+                  <p className="text-xs text-muted-foreground mt-4 max-w-md mx-auto text-center">
                     {t["scams.ctaDisclaimer"]}
                   </p>
                 </CardContent>
