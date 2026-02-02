@@ -9,6 +9,7 @@ import { CategoryIcons } from "@/components/home/CategoryIcons";
 import { WaterTestingServices } from "@/components/home/WaterTestingServices";
 import { DealerExpertCard } from "@/components/home/DealerExpertCard";
 import { DealerVideos } from "@/components/home/DealerVideos";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { LeadCapturePopup } from "@/components/LeadCapturePopup";
 import { useDealer } from "@/contexts/DealerContext";
 
@@ -65,6 +66,7 @@ const Index = () => {
         {/* Show dealer videos for dealer mode */}
         {isDealerMode && <DealerVideos />}
         
+        <TestimonialsSection />
         <WaterAlerts />
         <CategoryIcons />
       </main>

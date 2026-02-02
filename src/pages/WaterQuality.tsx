@@ -10,10 +10,10 @@ import {
   Droplets, 
   MapPin, 
   Phone,
-  Shield,
   Info
 } from "lucide-react";
 import { getWaterQualityByZip, hasSpecificData } from "@/data/waterQualityData";
+import cwtLogo from "@/assets/cwt-logo.png";
 
 export default function WaterQuality() {
   const { zip } = useParams<{ zip: string }>();
@@ -164,7 +164,9 @@ export default function WaterQuality() {
               <Card className="border-secondary bg-secondary/5">
                 <CardContent className="pt-6">
                   <div className="text-center">
-                    <Shield className="h-12 w-12 text-secondary mx-auto mb-4" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-secondary/10 rounded-full flex items-center justify-center p-2">
+                      <img src={cwtLogo} alt="CWT" className="h-12 w-auto" />
+                    </div>
                     <h3 className="text-xl font-semibold text-primary mb-2">
                       Request a Free Community Water Test
                     </h3>
