@@ -11,7 +11,6 @@ const testTypes = [
     icon: Beaker,
     titleKey: "tests.standard.title" as const,
     descKey: "tests.standard.desc" as const,
-    price: "$49",
     featured: true,
   },
   {
@@ -19,7 +18,6 @@ const testTypes = [
     icon: AlertTriangle,
     titleKey: "tests.heavyMetals.title" as const,
     descKey: "tests.heavyMetals.desc" as const,
-    price: "$39",
     featured: false,
   },
   {
@@ -27,7 +25,6 @@ const testTypes = [
     icon: Bug,
     titleKey: "tests.bacteria.title" as const,
     descKey: "tests.bacteria.desc" as const,
-    price: "$35",
     featured: false,
   },
   {
@@ -35,7 +32,6 @@ const testTypes = [
     icon: Thermometer,
     titleKey: "tests.legionella.title" as const,
     descKey: "tests.legionella.desc" as const,
-    price: "$55",
     featured: false,
   },
   {
@@ -43,7 +39,6 @@ const testTypes = [
     icon: FlaskConical,
     titleKey: "tests.chemical.title" as const,
     descKey: "tests.chemical.desc" as const,
-    price: "$45",
     featured: false,
   },
   {
@@ -51,7 +46,6 @@ const testTypes = [
     icon: Activity,
     titleKey: "tests.enterococci.title" as const,
     descKey: "tests.enterococci.desc" as const,
-    price: "$40",
     featured: false,
   },
   {
@@ -59,7 +53,6 @@ const testTypes = [
     icon: Droplets,
     titleKey: "tests.thm.title" as const,
     descKey: "tests.thm.desc" as const,
-    price: "$50",
     featured: false,
   },
   {
@@ -67,7 +60,6 @@ const testTypes = [
     icon: ClipboardCheck,
     titleKey: "tests.comprehensive.title" as const,
     descKey: "tests.comprehensive.desc" as const,
-    price: "$129",
     featured: true,
   },
 ];
@@ -118,10 +110,6 @@ export function WaterTestingServices() {
                 <CardDescription className="text-sm">
                   {t(test.descKey)}
                 </CardDescription>
-                {/* Only show price when NOT in dealer mode */}
-                {!isDealerMode && (
-                  <p className="text-2xl font-bold text-primary mt-3">{test.price}</p>
-                )}
               </CardContent>
               <CardFooter className="flex gap-2">
                 <Button variant="outline" size="sm" className="flex-1" asChild>
@@ -129,12 +117,9 @@ export function WaterTestingServices() {
                     {t("tests.learnMore")}
                   </Link>
                 </Button>
-                {/* Only show Add to Cart when NOT in dealer mode */}
-                {!isDealerMode && (
-                  <Button size="sm" className="flex-1 bg-secondary hover:bg-secondary/90">
-                    {t("tests.addToCart")}
-                  </Button>
-                )}
+                <Button size="sm" className="flex-1 bg-secondary hover:bg-secondary/90">
+                  {t("tests.requestTest")}
+                </Button>
               </CardFooter>
             </Card>
           ))}
@@ -158,15 +143,6 @@ export function WaterTestingServices() {
                 <Phone className="w-4 h-4 mr-2" />
                 {t("tests.freeTest")}
               </Button>
-              {/* Only show Order Kit when NOT in dealer mode */}
-              {!isDealerMode && (
-                <Button
-                  variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                >
-                  {t("tests.orderKit")}
-                </Button>
-              )}
             </div>
           </CardContent>
         </Card>

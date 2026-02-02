@@ -12,7 +12,6 @@ export function Header() {
   const navLinks = [
     { href: "/water-testing", label: t("nav.waterTesting") },
     { href: "/filters", label: t("nav.filters") },
-    { href: "/cost-guides", label: t("nav.costGuides") },
     { href: "/scam-alerts", label: t("nav.scamAlerts") },
     { href: "/about", label: t("nav.about") },
   ];
