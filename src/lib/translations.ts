@@ -63,7 +63,18 @@ export type TranslationKey =
   | "dealer.verified"
   | "dealer.contactCta"
   | "dealer.freeTest"
-  | "dealer.sponsored";
+  | "dealer.sponsored"
+  | "scams.title"
+  | "scams.subtitle"
+  | "scams.search"
+  | "scams.readMore"
+  | "scams.warningSigns"
+  | "scams.safetyTips"
+  | "scams.source"
+  | "scams.orderKit"
+  | "scams.freeTest"
+  | "scams.ctaTitle"
+  | "scams.ctaDesc";
 
 type Translations = {
   [lang: string]: {
@@ -138,6 +149,17 @@ export const translations: Translations = {
     "dealer.contactCta": "Contactar Experto",
     "dealer.freeTest": "Solicitar Prueba Gratis",
     "dealer.sponsored": "Patrocinado",
+    "scams.title": "Alertas de Estafas",
+    "scams.subtitle": "Protégete de las estafas de agua",
+    "scams.search": "Buscar alertas de estafas...",
+    "scams.readMore": "Leer Más",
+    "scams.warningSigns": "Señales de Advertencia",
+    "scams.safetyTips": "Consejos de Seguridad",
+    "scams.source": "Fuente",
+    "scams.orderKit": "Ordenar Kit Certificado",
+    "scams.freeTest": "Solicitar Prueba Gratis",
+    "scams.ctaTitle": "¿Preocupado por tu agua? Obtén una prueba REAL.",
+    "scams.ctaDesc": "No confíes en vendedores puerta a puerta. Usa un kit de prueba certificado.",
   },
   en: {
     "hero.title": "What's Really In Your Water?",
@@ -205,5 +227,16 @@ export const translations: Translations = {
     "dealer.contactCta": "Contact Expert",
     "dealer.freeTest": "Request Free Test",
     "dealer.sponsored": "Sponsored",
+    "scams.title": "Scam Alerts",
+    "scams.subtitle": "Protect yourself from water scams",
+    "scams.search": "Search scam alerts...",
+    "scams.readMore": "Read More",
+    "scams.warningSigns": "Warning Signs",
+    "scams.safetyTips": "Safety Tips",
+    "scams.source": "Source",
+    "scams.orderKit": "Order Certified Kit",
+    "scams.freeTest": "Request Free Test",
+    "scams.ctaTitle": "Worried about your water? Get a REAL test.",
+    "scams.ctaDesc": "Don't trust door-to-door salespeople. Use a certified test kit.",
   },
 };
