@@ -55,7 +55,7 @@ export function Header() {
             asChild
             className="hidden md:flex bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
           >
-            <Link to="/#tests">
+            <Link to="/schedule-test">
               <Calendar className="h-4 w-4 mr-2" />
               {ctaLabel}
             </Link>
@@ -103,7 +103,7 @@ export function Header() {
               className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Link to="/#tests">
+              <Link to="/schedule-test">
                 <Calendar className="h-4 w-4 mr-2" />
                 {ctaLabel}
               </Link>

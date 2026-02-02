@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { AlertTriangle, Shield, Search, Award, CheckCircle } from "lucide-react";
+import { AlertTriangle, Shield, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
@@ -7,15 +7,13 @@ import { Footer } from "@/components/layout/Footer";
 import { ScamCard } from "@/components/scam-alerts/ScamCard";
 import { ScamFilters } from "@/components/scam-alerts/ScamFilters";
 import { ScamDetailModal } from "@/components/scam-alerts/ScamDetailModal";
+import { ScamCommentsSection } from "@/components/scam-alerts/ScamCommentsSection";
 import { scamArticles, ScamArticle, ScamCategory, ScamLocation } from "@/data/scamData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { translations } from "@/lib/translations";
-import { ZohoFormEmbed } from "@/components/ZohoFormEmbed";
 
 export default function ScamAlerts() {
   const { language } = useLanguage();
-  const t = translations[language];
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocations, setSelectedLocations] = useState<ScamLocation[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<ScamCategory[]>([]);
@@ -123,7 +121,7 @@ export default function ScamAlerts() {
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/#tests">
+                <Link to="/schedule-test">
                   <Shield className="h-4 w-4 mr-2" />
                   {language === "es" ? "Obtener Prueba Segura" : "Get Safe Test"}
                 </Link>
@@ -200,39 +198,10 @@ export default function ScamAlerts() {
                 )
               )}
 
-              {/* Certified Test CTA with Zoho Form */}
-              <Card className="mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-secondary/20">
-                <CardContent className="p-6">
-                  {/* Header */}
-                  <div className="text-center mb-4">
-                    <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-4">
-                      <Award className="h-5 w-5" />
-                      <span className="font-semibold">{t["scams.techOfMonth"]}</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-2">
-                      {t["scams.ctaTitle"]}
-                    </h3>
-                    <p className="text-muted-foreground mb-2 max-w-lg mx-auto">
-                      {t["scams.ctaDesc"]}
-                    </p>
-                    
-                    {/* Verified Badge */}
-                    <div className="flex justify-center items-center gap-2 text-sm text-green-600">
-                      <CheckCircle className="h-5 w-5" />
-                      <span className="font-medium">{t["scams.verifiedBadge"]}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Embedded Zoho Form */}
-                  <ZohoFormEmbed height="500px" />
-                  
-                  {/* Disclaimer */}
-                  <p className="text-xs text-muted-foreground mt-4 max-w-md mx-auto text-center">
-                    {t["scams.ctaDisclaimer"]}
-                  </p>
-                </CardContent>
-              </Card>
+              {/* Community Comments Section */}
+              <div className="mt-8">
+                <ScamCommentsSection />
+              </div>
             </main>
           </div>
         </div>

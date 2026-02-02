@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import WaterQuality from "./pages/WaterQuality";
 import TestDetail from "./pages/TestDetail";
 import ScamAlerts from "./pages/ScamAlerts";
+import ScheduleTest from "./pages/ScheduleTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/water-quality/:zip" element={<WaterQuality />} />
               <Route path="/tests/:testId" element={<TestDetail />} />
               <Route path="/scam-alerts" element={<ScamAlerts />} />
+              <Route path="/schedule-test" element={<ScheduleTest />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
