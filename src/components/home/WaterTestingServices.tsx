@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { Beaker, AlertTriangle, Bug, Thermometer, FlaskConical, Activity, Droplets, ClipboardCheck, HelpCircle, Phone, CheckCircle } from "lucide-react";
+import { Beaker, AlertTriangle, Bug, Thermometer, FlaskConical, Activity, Droplets, ClipboardCheck, HelpCircle, CheckCircle, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useDealer } from "@/contexts/DealerContext";
-import { ZohoFormEmbed } from "@/components/ZohoFormEmbed";
+import cwtLogo from "@/assets/cwt-logo.png";
 
 const testTypes = [
   {
@@ -67,15 +66,17 @@ const testTypes = [
 
 export function WaterTestingServices() {
   const { t, language } = useLanguage();
-  const { isDealerMode } = useDealer();
 
   return (
     <section id="tests" className="py-16 md:py-24 bg-muted">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <img src={cwtLogo} alt="CWT" className="h-16 w-auto" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {language === "es" ? "Agenda Tu Prueba de Agua Certificada" : "Setup Your Certified Water Test"}
+            {language === "es" ? "Servicios de Prueba de Agua Certificados" : "Certified Water Testing Services"}
           </h2>
           <p className="text-lg text-muted-foreground">
             {language === "es" 
@@ -91,18 +92,21 @@ export function WaterTestingServices() {
           </div>
         </div>
 
-        {/* Zoho Form Embed - Primary CTA */}
-        <Card className="max-w-2xl mx-auto mb-12 border-secondary/20">
-          <CardContent className="p-6">
-            <ZohoFormEmbed height="500px" />
-            <p className="text-xs text-muted-foreground mt-4 text-center max-w-md mx-auto">
-              {language === "es" 
-                ? "Después de la prueba, tu representante te presentará opciones de filtros y puede dejar folletos informativos - esta consulta transparente es parte del servicio."
-                : "After testing, your representative will present filter options and may leave informational brochures - this transparent consultation is part of the service."
-              }
-            </p>
-          </CardContent>
-        </Card>
+        {/* Primary CTA Button */}
+        <div className="max-w-md mx-auto mb-12">
+          <Button asChild size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg py-6">
+            <Link to="/schedule-test">
+              <Calendar className="h-5 w-5 mr-2" />
+              {language === "es" ? "Agenda Tu Prueba Certificada" : "Schedule Your Certified Test"}
+            </Link>
+          </Button>
+          <p className="text-xs text-muted-foreground mt-3 text-center max-w-sm mx-auto">
+            {language === "es" 
+              ? "Después de la prueba, tu representante te presentará opciones de filtros y puede dejar folletos informativos."
+              : "After testing, your representative will present filter options and may leave informational brochures."
+            }
+          </p>
+        </div>
 
         {/* Test Types Info Grid */}
         <div className="max-w-4xl mx-auto">
@@ -140,10 +144,16 @@ export function WaterTestingServices() {
             </h3>
             <p className="opacity-80 mb-4">
               {language === "es" 
-                ? "Llena el formulario arriba y nuestro experto te ayudará a determinar qué análisis necesitas."
-                : "Fill out the form above and our expert will help determine which analysis you need."
+                ? "Agenda una prueba y nuestro experto te ayudará a determinar qué análisis necesitas."
+                : "Schedule a test and our expert will help determine which analysis you need."
               }
             </p>
+            <Button asChild variant="secondary" size="lg">
+              <Link to="/schedule-test">
+                <Calendar className="h-4 w-4 mr-2" />
+                {language === "es" ? "Agenda Ahora" : "Schedule Now"}
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </div>

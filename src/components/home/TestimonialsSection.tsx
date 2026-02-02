@@ -46,7 +46,7 @@ export function TestimonialsSection() {
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            {language === "es" ? "Lo Que Dicen Nuestros Clientes" : "What Our Customers Say"}
+            {language === "es" ? "Lo Que Dicen Nuestros Usuarios" : "What Our Users Say"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {language === "es" 
