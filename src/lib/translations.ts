@@ -74,7 +74,9 @@ export type TranslationKey =
   | "scams.orderKit"
   | "scams.freeTest"
   | "scams.ctaTitle"
-  | "scams.ctaDesc";
+  | "scams.ctaDesc"
+  | "scams.ctaDescDealer"
+  | "scams.ctaDisclaimer";
 
 type Translations = {
   [lang: string]: {
@@ -159,7 +161,9 @@ export const translations: Translations = {
     "scams.orderKit": "Ordenar Kit Certificado",
     "scams.freeTest": "Solicitar Prueba Gratis",
     "scams.ctaTitle": "¿Preocupado por tu agua? Obtén una prueba REAL.",
-    "scams.ctaDesc": "No confíes en vendedores puerta a puerta. Usa un kit de prueba certificado.",
+    "scams.ctaDesc": "Ordena tu prueba certificada de representantes verificados con sello de aprobación que siguen las mejores prácticas de la industria.",
+    "scams.ctaDescDealer": "Solicita una prueba gratuita de nuestros representantes verificados con sello de aprobación que siguen las mejores prácticas de la industria.",
+    "scams.ctaDisclaimer": "Después de la prueba, tu representante te presentará opciones de filtros y puede dejar folletos informativos - esta consulta transparente es parte del servicio.",
   },
   en: {
     "hero.title": "What's Really In Your Water?",
@@ -237,6 +241,8 @@ export const translations: Translations = {
     "scams.orderKit": "Order Certified Kit",
     "scams.freeTest": "Request Free Test",
     "scams.ctaTitle": "Worried about your water? Get a REAL test.",
-    "scams.ctaDesc": "Don't trust door-to-door salespeople. Use a certified test kit.",
+    "scams.ctaDesc": "Order your certified test from seal-of-approval verified representatives who follow industry best practices.",
+    "scams.ctaDescDealer": "Request a free test from our seal-of-approval verified representatives who follow industry best practices.",
+    "scams.ctaDisclaimer": "After testing, your representative will present filter options and may leave informational brochures - this transparent consultation is part of the service.",
   },
 };

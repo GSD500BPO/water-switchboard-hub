@@ -3,9 +3,11 @@ export type ScamCategory =
   | "phone" 
   | "fake-tests" 
   | "education" 
-  | "utility";
+  | "utility"
+  | "mail-in"
+  | "financing";
 
-export type ScamLocation = "Utah" | "New Jersey" | "General";
+export type ScamLocation = "Utah" | "New Jersey" | "General" | "Oregon" | "National";
 
 export interface ScamArticle {
   id: string;
@@ -21,6 +23,7 @@ export interface ScamArticle {
   sourceUrl?: string;
   votes: number;
   isPinned?: boolean;
+  images?: string[];
   summary: {
     en: string;
     es: string;
@@ -378,6 +381,337 @@ La mayoría de los hogares no necesitan sistemas de tratamiento de agua de $10,0
         "Pregunta por el costo total incluyendo instalación y mantenimiento"
       ]
     }
+  },
+  {
+    id: "ftc-aqua-finance",
+    title: {
+      en: "FTC Sends $19.8 Million in Refunds for Deceptive Water Treatment Sales",
+      es: "FTC Envía $19.8 Millones en Reembolsos por Ventas Engañosas de Tratamiento de Agua"
+    },
+    location: "National",
+    categories: ["door-to-door", "financing"],
+    date: "2025-02-19",
+    source: "FTC.gov",
+    sourceUrl: "https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-sends-more-198-million-refunds-consumers-harmed-aqua-finances-deceptive-sales-tactics",
+    votes: 3500,
+    summary: {
+      en: "The FTC filed a lawsuit against Aqua Finance for deceptive door-to-door sales tactics, resulting in $23.6 million in debt relief and $19.8 million in refunds to 29,653 affected consumers.",
+      es: "La FTC presentó una demanda contra Aqua Finance por tácticas de ventas engañosas puerta a puerta, resultando en $23.6 millones en alivio de deuda y $19.8 millones en reembolsos a 29,653 consumidores afectados."
+    },
+    content: {
+      en: `The Federal Trade Commission is sending more than $19.8 million in refunds to consumers who were harmed by deceptive sales tactics from household water treatment financing company Aqua Finance.
+
+**The Case:**
+
+In May 2024, the FTC filed a lawsuit against Aqua Finance, charging that the company's nationwide network of dealers deceived consumers during door-to-door sales about the financing terms for water filtering and softening products.
+
+**The Harm:**
+
+According to the complaint, the false claims left consumers with hundreds to thousands of dollars in unexpected debt and large interest payments. Even worse, the financing terms impaired some consumers' ability to sell or refinance their homes.
+
+**The Settlement:**
+
+The company agreed to a settlement with the FTC that requires them to:
+- Closely monitor their dealers
+- Make clear disclosures to consumers
+- Provide $23.6 million in debt relief
+- Provide money for refunds
+
+**The Refunds:**
+
+The FTC is sending checks to 29,653 affected consumers. Recipients should cash their checks within 90 days.
+
+**What This Means for You:**
+
+If you're approached by water treatment salespeople offering financing, be extremely cautious. Never sign financing agreements on the spot—take time to read all terms carefully, especially anything related to liens on your home.
+
+**Report Fraud:**
+
+If you suspect fraud, contact the FTC at ReportFraud.ftc.gov. The Commission never requires people to pay money or provide account information to get a refund.`,
+      es: `La Comisión Federal de Comercio está enviando más de $19.8 millones en reembolsos a consumidores que fueron perjudicados por tácticas de ventas engañosas de la compañía de financiamiento de tratamiento de agua Aqua Finance.
+
+**El Caso:**
+
+En mayo de 2024, la FTC presentó una demanda contra Aqua Finance, acusando a la red nacional de distribuidores de la compañía de engañar a los consumidores durante las ventas puerta a puerta sobre los términos de financiamiento para productos de filtrado y suavizado de agua.
+
+**El Daño:**
+
+Según la demanda, las afirmaciones falsas dejaron a los consumidores con cientos a miles de dólares en deudas inesperadas y grandes pagos de intereses. Peor aún, los términos de financiamiento afectaron la capacidad de algunos consumidores para vender o refinanciar sus hogares.
+
+**El Acuerdo:**
+
+La compañía acordó un acuerdo con la FTC que les requiere:
+- Supervisar de cerca a sus distribuidores
+- Hacer divulgaciones claras a los consumidores
+- Proporcionar $23.6 millones en alivio de deuda
+- Proporcionar dinero para reembolsos
+
+**Los Reembolsos:**
+
+La FTC está enviando cheques a 29,653 consumidores afectados. Los beneficiarios deben cobrar sus cheques dentro de 90 días.
+
+**Lo Que Esto Significa Para Ti:**
+
+Si te acercan vendedores de tratamiento de agua ofreciendo financiamiento, ten mucho cuidado. Nunca firmes acuerdos de financiamiento en el momento—toma tiempo para leer todos los términos cuidadosamente, especialmente cualquier cosa relacionada con gravámenes sobre tu casa.
+
+**Reporta el Fraude:**
+
+Si sospechas fraude, contacta a la FTC en ReportFraud.ftc.gov. La Comisión nunca requiere que las personas paguen dinero o proporcionen información de cuenta para obtener un reembolso.`
+    },
+    warningSigns: {
+      en: [
+        "Door-to-door water system sales with financing offers",
+        "Unclear or hidden financing terms",
+        "Systems that create liens on your home",
+        "High-pressure immediate financing approval",
+        "Promises of low monthly payments without showing total cost"
+      ],
+      es: [
+        "Ventas puerta a puerta de sistemas de agua con ofertas de financiamiento",
+        "Términos de financiamiento poco claros u ocultos",
+        "Sistemas que crean gravámenes sobre tu casa",
+        "Aprobación de financiamiento inmediato bajo alta presión",
+        "Promesas de pagos mensuales bajos sin mostrar el costo total"
+      ]
+    },
+    safetyTips: {
+      en: [
+        "Never sign financing agreements on the spot",
+        "Read all terms carefully, especially about home liens",
+        "Research financing company reputation before agreeing",
+        "Get the total cost in writing, including all fees and interest",
+        "Contact FTC at ReportFraud.ftc.gov if you suspect fraud"
+      ],
+      es: [
+        "Nunca firmes acuerdos de financiamiento en el momento",
+        "Lee todos los términos cuidadosamente, especialmente sobre gravámenes",
+        "Investiga la reputación de la compañía de financiamiento antes de aceptar",
+        "Obtén el costo total por escrito, incluyendo todos los cargos e intereses",
+        "Contacta a la FTC en ReportFraud.ftc.gov si sospechas fraude"
+      ]
+    }
+  },
+  {
+    id: "oregon-mail-in-scam",
+    title: {
+      en: "Mail-In Water Test Kits: The Lead Generation Scam",
+      es: "Kits de Prueba de Agua por Correo: La Estafa de Generación de Prospectos"
+    },
+    location: "Oregon",
+    categories: ["mail-in", "fake-tests"],
+    date: "2024-03-20",
+    source: "Oregon Health Authority / Seal Rock Water District",
+    sourceUrl: "http://srwd.org/water-testing-scam",
+    votes: 1890,
+    images: [
+      "scam-test-tube.png",
+      "scam-mail-notice.png",
+      "scam-mailer.png",
+      "scam-mailer-2.png"
+    ],
+    summary: {
+      en: "Oregon Health Authority warned residents about unsolicited mail-in water test kits used to collect personal information and push expensive filtration systems.",
+      es: "La Autoridad de Salud de Oregon advirtió a los residentes sobre kits de prueba de agua por correo no solicitados usados para recopilar información personal y promover sistemas de filtración costosos."
+    },
+    content: {
+      en: `The Oregon Health Authority and Seal Rock Water District issued a warning about fake water testing kits being mailed to residents.
+
+**How the Scam Works:**
+
+While not a criminal scam, these businesses operate in a way that raises serious concerns. The small print at the bottom of their mailers clearly states they are NOT affiliated with EPA or city or county health departments.
+
+Instead, this private business uses fake home testing kits to collect information to identify leads and sell expensive point-of-use (POU) filtration.
+
+**What They Collect:**
+- Your name and address
+- Your water source information
+- Your opinion of your water quality
+- Whether you already have water treatment
+- Contact information for follow-up
+
+**The Follow-Up:**
+
+They use this data to contact you saying your test results are bad, but the company can perform a "thorough in-home analysis for free." Then, they push to sell an expensive water softener or POU system when they're in your home.
+
+**Critical Rules to Follow:**
+
+1. **Never mail in unsolicited test kits** - If you receive a test kit you didn't request, throw it away
+2. **If no one showed up, don't believe it** - Legitimate water testing companies don't cold-mail test kits
+3. **Always have someone with you** - Never be alone during an in-home water test. Have your spouse, a loved one, or call us to verify the representative
+4. **Check the fine print** - If it says "not affiliated with EPA or health departments," it's not official
+
+**The Reality:**
+
+Your local water district continually delivers drinking water that meets or exceeds state and federal regulatory limits. If you have concerns, contact your water district directly or order a certified test from verified representatives.`,
+      es: `La Autoridad de Salud de Oregon y el Distrito de Agua de Seal Rock emitieron una advertencia sobre kits de prueba de agua falsos que se envían por correo a los residentes.
+
+**Cómo Funciona la Estafa:**
+
+Aunque no es una estafa criminal, estos negocios operan de una manera que genera serias preocupaciones. La letra pequeña en la parte inferior de sus correos establece claramente que NO están afiliados con la EPA ni con los departamentos de salud de la ciudad o el condado.
+
+En cambio, este negocio privado usa kits de prueba caseros falsos para recopilar información para identificar prospectos y vender sistemas de filtración de punto de uso (POU) costosos.
+
+**Lo Que Recopilan:**
+- Tu nombre y dirección
+- Información sobre tu fuente de agua
+- Tu opinión sobre la calidad de tu agua
+- Si ya tienes tratamiento de agua
+- Información de contacto para seguimiento
+
+**El Seguimiento:**
+
+Usan estos datos para contactarte diciendo que los resultados de tu prueba son malos, pero la compañía puede realizar un "análisis en casa exhaustivo gratis." Luego, presionan para vender un suavizador de agua o sistema POU costoso cuando están en tu casa.
+
+**Reglas Críticas a Seguir:**
+
+1. **Nunca envíes kits de prueba no solicitados por correo** - Si recibes un kit de prueba que no solicitaste, tíralo
+2. **Si nadie se presentó, no lo creas** - Las compañías de pruebas de agua legítimas no envían kits de prueba por correo sin solicitar
+3. **Siempre ten a alguien contigo** - Nunca estés solo durante una prueba de agua en casa. Ten a tu cónyuge, un ser querido, o llámanos para verificar al representante
+4. **Revisa la letra pequeña** - Si dice "no afiliado con la EPA o departamentos de salud," no es oficial
+
+**La Realidad:**
+
+Tu distrito de agua local entrega continuamente agua potable que cumple o excede los límites regulatorios estatales y federales. Si tienes preocupaciones, contacta a tu distrito de agua directamente u ordena una prueba certificada de representantes verificados.`
+    },
+    warningSigns: {
+      en: [
+        "Receiving unsolicited water test kits in the mail",
+        "Kit asks for extensive personal information",
+        "\"Return deadline\" pressure tactics",
+        "Fine print disclaiming government affiliation",
+        "Offers for \"free in-home analysis\" after mailing"
+      ],
+      es: [
+        "Recibir kits de prueba de agua no solicitados por correo",
+        "El kit pide información personal extensa",
+        "Tácticas de presión con \"fecha límite de devolución\"",
+        "Letra pequeña negando afiliación gubernamental",
+        "Ofertas de \"análisis gratuito en casa\" después de enviar"
+      ]
+    },
+    safetyTips: {
+      en: [
+        "Never mail in unsolicited test kits - throw them away",
+        "If no one showed up to your door, don't believe the mailer",
+        "Always have a spouse or loved one present during in-home tests",
+        "Call us to verify any representative before letting them in",
+        "Order certified tests from verified, WQA seal-of-approval representatives"
+      ],
+      es: [
+        "Nunca envíes kits de prueba no solicitados - tíralos",
+        "Si nadie se presentó en tu puerta, no creas el correo",
+        "Siempre ten a tu cónyuge o ser querido presente durante las pruebas en casa",
+        "Llámanos para verificar a cualquier representante antes de dejarlo entrar",
+        "Ordena pruebas certificadas de representantes verificados con sello de aprobación WQA"
+      ]
+    }
+  },
+  {
+    id: "mail-in-protection-guide",
+    title: {
+      en: "How to Protect Yourself from Mail-In Water Test Scams",
+      es: "Cómo Protegerte de las Estafas de Pruebas de Agua por Correo"
+    },
+    location: "General",
+    categories: ["mail-in", "education", "fake-tests"],
+    date: "2025-03-01",
+    votes: 2200,
+    summary: {
+      en: "Essential guide on avoiding mail-in water test scams and how to get legitimate testing from verified representatives with WQA certification.",
+      es: "Guía esencial sobre cómo evitar estafas de pruebas de agua por correo y cómo obtener pruebas legítimas de representantes verificados con certificación WQA."
+    },
+    content: {
+      en: `Growing public awareness of potential water quality problems has resulted in a significant increase in mail-in test scam activity. Here's how to protect yourself and your family.
+
+**The Mail-In Scam Pattern:**
+
+Businesses send unsolicited "water test kits" through the mail, hoping you'll fill them out and return them. But these aren't real tests—they're lead generation tools designed to get your information so salespeople can contact you.
+
+**Key Rules to Remember:**
+
+**1. Never mail in unsolicited test kits**
+If you receive a test kit you didn't request, throw it away. Legitimate testing companies don't cold-mail test kits to random addresses.
+
+**2. If no one showed up, don't believe it**
+Real water testing requires proper sampling procedures. A kit that arrives unannounced with no representative visit is not a legitimate testing service.
+
+**3. Always have someone with you during in-home tests**
+If you do schedule a legitimate water test, always make sure to be home with your spouse, loved one, or call us to verify the representative. Never be alone during an in-home water test.
+
+**4. Order certified tests from verified representatives**
+Get your test from verified representatives who follow best practices with the WQA (Water Quality Association) seal of approval. These representatives have background checks and follow industry standards.
+
+**What to Expect from Legitimate Testing:**
+
+After a certified water test, representatives will present you with information about your water quality and may offer filter options. This transparent consultation is part of the service—you'll receive brochures and recommendations based on your actual test results. This is normal and expected from legitimate services.
+
+**The Difference:**
+- Scammers: Send unsolicited kits, use scare tactics, pressure immediate sales
+- Verified Reps: Schedule appointments, follow protocols, provide transparent information
+
+**Happy families trust water systems from certified dealers who follow proper testing procedures.**`,
+      es: `La creciente conciencia pública sobre posibles problemas de calidad del agua ha resultado en un aumento significativo en la actividad de estafas de pruebas por correo. Aquí está cómo protegerte a ti y a tu familia.
+
+**El Patrón de Estafa por Correo:**
+
+Los negocios envían "kits de prueba de agua" no solicitados por correo, esperando que los llenes y los devuelvas. Pero estas no son pruebas reales—son herramientas de generación de prospectos diseñadas para obtener tu información para que los vendedores puedan contactarte.
+
+**Reglas Clave para Recordar:**
+
+**1. Nunca envíes kits de prueba no solicitados por correo**
+Si recibes un kit de prueba que no solicitaste, tíralo. Las compañías de pruebas legítimas no envían kits de prueba por correo a direcciones aleatorias.
+
+**2. Si nadie se presentó, no lo creas**
+Las pruebas de agua reales requieren procedimientos de muestreo adecuados. Un kit que llega sin anuncio y sin visita de un representante no es un servicio de pruebas legítimo.
+
+**3. Siempre ten a alguien contigo durante las pruebas en casa**
+Si programas una prueba de agua legítima, siempre asegúrate de estar en casa con tu cónyuge, ser querido, o llámanos para verificar al representante. Nunca estés solo durante una prueba de agua en casa.
+
+**4. Ordena pruebas certificadas de representantes verificados**
+Obtén tu prueba de representantes verificados que siguen las mejores prácticas con el sello de aprobación de la WQA (Asociación de Calidad del Agua). Estos representantes tienen verificación de antecedentes y siguen los estándares de la industria.
+
+**Qué Esperar de las Pruebas Legítimas:**
+
+Después de una prueba de agua certificada, los representantes te presentarán información sobre la calidad de tu agua y pueden ofrecer opciones de filtros. Esta consulta transparente es parte del servicio—recibirás folletos y recomendaciones basadas en tus resultados reales. Esto es normal y esperado de servicios legítimos.
+
+**La Diferencia:**
+- Estafadores: Envían kits no solicitados, usan tácticas de miedo, presionan ventas inmediatas
+- Representantes Verificados: Programan citas, siguen protocolos, proporcionan información transparente
+
+**Las familias felices confían en los sistemas de agua de distribuidores certificados que siguen los procedimientos de prueba adecuados.**`
+    },
+    warningSigns: {
+      en: [
+        "Test kit arrived without you requesting it",
+        "No representative ever visited your home",
+        "Kit asks for extensive personal and household information",
+        "Mailer has urgent \"deadline\" language",
+        "Small print says \"not affiliated with government agencies\""
+      ],
+      es: [
+        "El kit de prueba llegó sin que lo solicitaras",
+        "Ningún representante visitó tu casa",
+        "El kit pide información personal y del hogar extensa",
+        "El correo tiene lenguaje urgente de \"fecha límite\"",
+        "La letra pequeña dice \"no afiliado con agencias gubernamentales\""
+      ]
+    },
+    safetyTips: {
+      en: [
+        "Order certified tests from verified WQA seal-of-approval representatives",
+        "Verified reps follow best practices and have background checks",
+        "Always have your spouse or loved one present during testing",
+        "Call to verify any representative before allowing entry",
+        "After testing, expect a transparent presentation on filter options (this is normal)"
+      ],
+      es: [
+        "Ordena pruebas certificadas de representantes con sello de aprobación WQA verificados",
+        "Los representantes verificados siguen las mejores prácticas y tienen verificación de antecedentes",
+        "Siempre ten a tu cónyuge o ser querido presente durante las pruebas",
+        "Llama para verificar a cualquier representante antes de permitir la entrada",
+        "Después de la prueba, espera una presentación transparente sobre opciones de filtros (esto es normal)"
+      ]
+    }
   }
 ];
 
@@ -386,11 +720,15 @@ export const categoryLabels: Record<ScamCategory, { en: string; es: string }> = 
   "phone": { en: "Phone Scam", es: "Estafa Telefónica" },
   "fake-tests": { en: "Fake Tests", es: "Pruebas Falsas" },
   "education": { en: "Education", es: "Educación" },
-  "utility": { en: "Utility Scam", es: "Estafa de Servicios" }
+  "utility": { en: "Utility Scam", es: "Estafa de Servicios" },
+  "mail-in": { en: "Mail-In Scam", es: "Estafa por Correo" },
+  "financing": { en: "Financing Scam", es: "Estafa de Financiamiento" }
 };
 
 export const locationLabels: Record<ScamLocation, { en: string; es: string }> = {
   "Utah": { en: "Utah", es: "Utah" },
   "New Jersey": { en: "New Jersey", es: "Nueva Jersey" },
-  "General": { en: "General", es: "General" }
+  "General": { en: "General", es: "General" },
+  "Oregon": { en: "Oregon", es: "Oregon" },
+  "National": { en: "National", es: "Nacional" }
 };
