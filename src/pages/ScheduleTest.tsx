@@ -98,7 +98,7 @@ export default function ScheduleTest() {
                   <img 
                     src={yamilyPhoto} 
                     alt="Yamily Acosta" 
-                    className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-secondary/30 shadow-lg mb-4"
+                    className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-secondary/30 shadow-lg mb-4"
                   />
                   <h3 className="text-xl font-bold text-foreground">Yamily Acosta</h3>
                   <p className="text-sm text-muted-foreground mb-3">Salt Lake City, Utah</p>
