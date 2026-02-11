@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDealer } from "@/contexts/DealerContext";
+import ebookImage from "@/assets/ebook-water-test.jpg";
 
 interface LeadCapturePopupProps {
   isOpen: boolean;
@@ -27,7 +28,7 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
       name,
       email,
       zip,
-      phone: phone || null,
+      phone,
       dealer_id: dealer?.id || null,
       lead_source: dealer ? `Dealer: ${dealer.name}` : "eBook Download",
       detection_source: detectionSource,
@@ -51,45 +52,40 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
       <div className="relative w-full max-w-4xl mx-4 overflow-hidden rounded-2xl shadow-2xl">
         <div className="grid md:grid-cols-2">
-          {/* Left side - eBook Cover Mockup */}
-          <div className="hidden md:flex relative bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex-col items-center justify-center p-10 text-primary-foreground">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-6 left-6 w-32 h-32 rounded-full border-2 border-current" />
-              <div className="absolute bottom-10 right-8 w-24 h-24 rounded-full border-2 border-current" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-current" />
-            </div>
+          {/* Left side - HD Water Test Image + eBook overlay */}
+          <div className="hidden md:flex relative flex-col items-center justify-end overflow-hidden">
+            <img
+              src={ebookImage}
+              alt="Water quality testing in beaker"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-            {/* eBook visual */}
-            <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform">
-              <div className="flex items-center gap-2 mb-4">
-                <BookOpen className="h-6 w-6" />
-                <span className="text-xs font-semibold uppercase tracking-widest opacity-80">Free Guide</span>
+            <div className="relative z-10 p-8 text-white">
+              <div className="flex items-center gap-2 mb-3">
+                <BookOpen className="h-5 w-5" />
+                <span className="text-xs font-semibold uppercase tracking-widest opacity-80">
+                  {t("popup.ebookSubtitle")}
+                </span>
               </div>
-              <h3 className="text-2xl font-bold leading-tight mb-2">
+              <h3 className="text-2xl font-bold leading-tight mb-3">
                 {t("popup.ebookTitle")}
               </h3>
-              <p className="text-sm opacity-80 mb-6">
-                {t("popup.ebookSubtitle")}
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs opacity-70">
-                  <Droplets className="h-3.5 w-3.5" />
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs opacity-80">
+                  <Droplets className="h-3.5 w-3.5 shrink-0" />
                   <span>Lead, PFAS, Arsenic, THMs</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs opacity-70">
-                  <Shield className="h-3.5 w-3.5" />
+                <div className="flex items-center gap-2 text-xs opacity-80">
+                  <Shield className="h-3.5 w-3.5 shrink-0" />
                   <span>EPA Safe Limits Explained</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs opacity-70">
-                  <FlaskConical className="h-3.5 w-3.5" />
+                <div className="flex items-center gap-2 text-xs opacity-80">
+                  <FlaskConical className="h-3.5 w-3.5 shrink-0" />
                   <span>Signs Your Water Needs Testing</span>
                 </div>
               </div>
             </div>
-
-            <p className="relative z-10 mt-6 text-xs text-center opacity-60">
-              Trusted by 10,000+ homeowners
-            </p>
           </div>
 
           {/* Right side - Form */}
@@ -148,6 +144,7 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
                   placeholder={t("popup.phonePlaceholder")}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  required
                   className="h-12 bg-muted border-border"
                 />
                 <Button
