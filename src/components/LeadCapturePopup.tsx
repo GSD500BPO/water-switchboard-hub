@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, BookOpen, Shield, Droplets, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDealer } from "@/contexts/DealerContext";
-import heroImage from "@/assets/hero-water-testing.jpg";
 
 interface LeadCapturePopupProps {
   isOpen: boolean;
@@ -14,6 +13,7 @@ interface LeadCapturePopupProps {
 export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
   const { t } = useLanguage();
   const { dealer, isDealerMode, detectionSource } = useDealer();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [zip, setZip] = useState("");
   const [phone, setPhone] = useState("");
@@ -22,50 +22,74 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Prepare lead data with dealer attribution
+
     const leadData = {
+      name,
       email,
       zip,
       phone: phone || null,
       dealer_id: dealer?.id || null,
-      lead_source: dealer ? `Dealer: ${dealer.name}` : "Organic",
+      lead_source: dealer ? `Dealer: ${dealer.name}` : "eBook Download",
       detection_source: detectionSource,
       created_at: new Date().toISOString(),
     };
-    
-    // Log for now - will be sent to backend when Zoho webhook is configured
+
     console.log("Lead captured:", leadData);
-    
-    // TODO: Send to Supabase edge function for Zoho CRM integration
-    
-    // Mark as submitted so we don't show popup again
+
     localStorage.setItem("cwt_lead_submitted", "true");
     localStorage.setItem("cwt_lead_email", email);
     localStorage.setItem("cwt_lead_zip", zip);
-    
+
     setIsSubmitting(false);
     onClose();
   };
 
-  // Check if user already submitted
   const hasSubmitted = localStorage.getItem("cwt_lead_submitted") === "true";
-
-  // Don't show if already submitted or not open
   if (!isOpen || hasSubmitted) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="relative w-full max-w-4xl mx-4 overflow-hidden rounded-lg shadow-2xl">
+      <div className="relative w-full max-w-4xl mx-4 overflow-hidden rounded-2xl shadow-2xl">
         <div className="grid md:grid-cols-2">
-          {/* Left side - Image */}
-          <div className="hidden md:block relative">
-            <img
-              src={heroImage}
-              alt="Water testing"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent" />
+          {/* Left side - eBook Cover Mockup */}
+          <div className="hidden md:flex relative bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex-col items-center justify-center p-10 text-primary-foreground">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-6 left-6 w-32 h-32 rounded-full border-2 border-current" />
+              <div className="absolute bottom-10 right-8 w-24 h-24 rounded-full border-2 border-current" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-current" />
+            </div>
+
+            {/* eBook visual */}
+            <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform">
+              <div className="flex items-center gap-2 mb-4">
+                <BookOpen className="h-6 w-6" />
+                <span className="text-xs font-semibold uppercase tracking-widest opacity-80">Free Guide</span>
+              </div>
+              <h3 className="text-2xl font-bold leading-tight mb-2">
+                {t("popup.ebookTitle")}
+              </h3>
+              <p className="text-sm opacity-80 mb-6">
+                {t("popup.ebookSubtitle")}
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs opacity-70">
+                  <Droplets className="h-3.5 w-3.5" />
+                  <span>Lead, PFAS, Arsenic, THMs</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs opacity-70">
+                  <Shield className="h-3.5 w-3.5" />
+                  <span>EPA Safe Limits Explained</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs opacity-70">
+                  <FlaskConical className="h-3.5 w-3.5" />
+                  <span>Signs Your Water Needs Testing</span>
+                </div>
+              </div>
+            </div>
+
+            <p className="relative z-10 mt-6 text-xs text-center opacity-60">
+              Trusted by 10,000+ homeowners
+            </p>
           </div>
 
           {/* Right side - Form */}
@@ -80,15 +104,29 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
 
             <div className="space-y-6">
               <div className="text-center">
+                {/* Mobile eBook icon */}
+                <div className="md:hidden flex justify-center mb-3">
+                  <div className="bg-primary/10 rounded-full p-3">
+                    <BookOpen className="h-8 w-8 text-primary" />
+                  </div>
+                </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   {t("popup.title")}
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   {t("popup.subtitle")}
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <Input
+                  type="text"
+                  placeholder={t("popup.namePlaceholder")}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="h-12 bg-muted border-border"
+                />
                 <Input
                   type="email"
                   placeholder={t("popup.emailPlaceholder")}
@@ -115,7 +153,7 @@ export function LeadCapturePopup({ isOpen, onClose }: LeadCapturePopupProps) {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-12 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
+                  className="w-full h-12 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold text-base"
                 >
                   {isSubmitting ? "..." : t("popup.cta")}
                 </Button>
