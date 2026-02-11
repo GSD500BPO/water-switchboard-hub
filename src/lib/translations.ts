@@ -25,12 +25,15 @@ export type TranslationKey =
   | "footer.copyright"
   | "popup.title"
   | "popup.subtitle"
+  | "popup.namePlaceholder"
   | "popup.emailPlaceholder"
   | "popup.zipPlaceholder"
   | "popup.phonePlaceholder"
   | "popup.cta"
   | "popup.dismiss"
   | "popup.privacy"
+  | "popup.ebookTitle"
+  | "popup.ebookSubtitle"
   | "tests.title"
   | "tests.subtitle"
   | "tests.subtitleDealer"
@@ -112,14 +115,17 @@ export const translations: Translations = {
     "footer.resources": "Recursos",
     "footer.legal": "Legal",
     "footer.copyright": "© 2026 Community Water Test. Todos los derechos reservados. Un recurso independiente de datos de calidad del agua.",
-    "popup.title": "¿Sabes Qué Hay en Tu Agua?",
-    "popup.subtitle": "Obtén información gratuita sobre la calidad del agua en tu área.",
+    "popup.title": "Obtén Tu Guía GRATIS de Calidad del Agua",
+    "popup.subtitle": "Aprende qué contaminantes hay en tu agua y cómo proteger a tu familia. Descarga nuestra guía completa.",
+    "popup.namePlaceholder": "Nombre completo*",
     "popup.emailPlaceholder": "Correo electrónico*",
     "popup.zipPlaceholder": "Código postal*",
     "popup.phonePlaceholder": "Teléfono (opcional)",
-    "popup.cta": "Obtener Información",
+    "popup.cta": "Enviarme La Guía Gratis",
     "popup.dismiss": "No gracias, continuar al sitio",
-    "popup.privacy": "Al enviar, recibirás actualizaciones. Cancela en cualquier momento.",
+    "popup.privacy": "Al enviar, recibirás tu guía gratis por correo. Cancela en cualquier momento.",
+    "popup.ebookTitle": "¿Qué Hay Realmente en Tu Agua?",
+    "popup.ebookSubtitle": "La Guía Completa del Propietario",
     "tests.title": "¿Qué Pruebas de Agua Están Disponibles?",
     "tests.subtitle": "Ordena tus propios kits de prueba o solicita una prueba gratuita de nuestros especialistas certificados por la EPA. Te presentarán opciones de filtros sin costo ni compromiso.",
     "tests.subtitleDealer": "Solicita una prueba gratuita de nuestro especialista certificado por la EPA. Te presentará opciones de filtros sin costo ni compromiso.",
@@ -194,14 +200,17 @@ export const translations: Translations = {
     "footer.resources": "Resources",
     "footer.legal": "Legal",
     "footer.copyright": "© 2026 Community Water Test. All rights reserved. An independent water quality data resource.",
-    "popup.title": "Do You Know What's in Your Water?",
-    "popup.subtitle": "Get free information about water quality in your area.",
+    "popup.title": "Get Your FREE Water Quality Guide",
+    "popup.subtitle": "Learn what contaminants are in your tap water and how to protect your family. Download our comprehensive guide.",
+    "popup.namePlaceholder": "Full Name*",
     "popup.emailPlaceholder": "Email*",
     "popup.zipPlaceholder": "ZIP code*",
     "popup.phonePlaceholder": "Phone (optional)",
-    "popup.cta": "Get Information",
+    "popup.cta": "Send Me The Free Guide",
     "popup.dismiss": "No thanks, continue to site",
-    "popup.privacy": "By submitting, you'll receive updates. Unsubscribe any time.",
+    "popup.privacy": "By submitting, you'll receive your free guide via email. Unsubscribe any time.",
+    "popup.ebookTitle": "What's Really In Your Water?",
+    "popup.ebookSubtitle": "The Complete Homeowner's Guide",
     "tests.title": "What Drinking Water Tests Are Available?",
     "tests.subtitle": "Order your own test kits or get a free test from our EPA-certified specialists. They'll present you filter options at no cost or obligation.",
     "tests.subtitleDealer": "Request a free test from our EPA-certified specialist. They'll present you filter options at no cost or obligation.",
