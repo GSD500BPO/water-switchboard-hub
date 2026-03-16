@@ -10,6 +10,8 @@ import WaterQuality from "./pages/WaterQuality";
 import TestDetail from "./pages/TestDetail";
 import ScamAlerts from "./pages/ScamAlerts";
 import ScheduleTest from "./pages/ScheduleTest";
+import UtahPage from "./pages/UtahPage";
+import CityPage from "./pages/CityPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
               <Route path="/water-quality/:zip" element={<WaterQuality />} />
               <Route path="/tests/:testId" element={<TestDetail />} />
               <Route path="/scam-alerts" element={<ScamAlerts />} />
+              <Route path="/water-treatment/utah" element={<UtahPage />} />
+              <Route path="/water-treatment/utah/:city" element={<CityPage />} />
               <Route path="/schedule-test" element={<ScheduleTest />} />
               <Route path="/water-testing" element={<Navigate to="/schedule-test" replace />} />
               <Route path="/filters" element={<Navigate to="/" replace />} />
