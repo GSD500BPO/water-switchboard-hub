@@ -20,18 +20,12 @@ export interface Dealer {
 export const yamilyAcosta: Dealer = {
   id: "yamily-acosta",
   name: "Yamily Acosta",
-  displayName: "Your Local Water Expert", // Anonymous branding
+  displayName: "Your Local Water Experts", // Anonymous branding
   region: "Utah",
   state: "UT",
   language: "es",
   coverageZips: [], // Will be filled by isUtahZip function
-  qrParams: [
-    "Lead Source UTAH Yamily ESP",
-    "UTAH",
-    "Yamily",
-    "yamily",
-    "utah-rep",
-  ],
+  qrParams: ["Lead Source UTAH Yamily ESP", "UTAH", "Yamily", "yamily", "utah-rep"],
   facebookVideos: [
     "https://web.facebook.com/reel/1277930490828994",
     "https://web.facebook.com/share/r/1Acd43rbge/",
@@ -55,35 +49,35 @@ export function isUtahZip(zip: string): boolean {
 // Get dealer by QR/URL parameter
 export function getDealerByParam(param: string): Dealer | null {
   if (!param) return null;
-  
+
   const normalizedParam = param.toLowerCase();
-  
+
   for (const dealer of dealers) {
     for (const qrParam of dealer.qrParams) {
-      if (normalizedParam.includes(qrParam.toLowerCase()) || 
-          qrParam.toLowerCase().includes(normalizedParam)) {
+      if (normalizedParam.includes(qrParam.toLowerCase()) || qrParam.toLowerCase().includes(normalizedParam)) {
         return dealer;
       }
     }
   }
-  
+
   return null;
 }
 
 // Get dealer by state (for geo-detection)
 export function getDealerByState(state: string): Dealer | null {
   if (!state) return null;
-  
+
   const normalizedState = state.toLowerCase();
-  
+
   for (const dealer of dealers) {
-    if (dealer.isActive && 
-        (dealer.state.toLowerCase() === normalizedState || 
-         dealer.region.toLowerCase() === normalizedState)) {
+    if (
+      dealer.isActive &&
+      (dealer.state.toLowerCase() === normalizedState || dealer.region.toLowerCase() === normalizedState)
+    ) {
       return dealer;
     }
   }
-  
+
   return null;
 }
 
