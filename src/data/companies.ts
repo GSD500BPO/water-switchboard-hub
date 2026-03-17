@@ -5,14 +5,31 @@ import companiesData from "./companies.json";
 export interface Company {
   id: string;
   name: string;
+  slug: string;
   phone: string | null;
   email: string | null;
   website: string | null;
+  description: string | null;
+  services: string[];
   googleRating: number | null;
   googleReviewCount: number | null;
   googleMapsUrl: string | null;
+  logoUrl: string | null;
+  photoUrls: string[];
+  socialLinks: Record<string, string> | null;
   city: string;
   state: string;
+}
+
+export function getCompanyBySlug(stateSlug: string, citySlug: string, companySlug: string): Company | null {
+  const companies = getCompaniesByCity(stateSlug, citySlug);
+  return companies.find((c) => c.slug === companySlug) || null;
+}
+
+export function getAllCompanies(): Company[] {
+  return Object.values(data.states).flatMap((state) =>
+    Object.values(state.cities).flatMap((city) => city.companies)
+  );
 }
 
 export interface CityData {

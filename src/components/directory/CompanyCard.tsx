@@ -1,14 +1,26 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Phone, Globe, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Company } from "@/data/companies";
 
-// Deterministic color from company name
 const AVATAR_COLORS = [
   "bg-blue-600", "bg-emerald-600", "bg-purple-600", "bg-amber-600",
   "bg-rose-600", "bg-cyan-600", "bg-indigo-600", "bg-teal-600",
 ];
+
+const SERVICE_LABELS: Record<string, string> = {
+  water_softener: "Water Softener",
+  reverse_osmosis: "Reverse Osmosis",
+  whole_house_filtration: "Whole House",
+  alkaline_water: "Alkaline Water",
+  uv_sterilization: "UV Sterilization",
+  iron_removal: "Iron Removal",
+  water_testing: "Water Testing",
+  well_water: "Well Water",
+  commercial: "Commercial",
+};
 
 function hashCode(s: string): number {
   let h = 0;
@@ -25,13 +37,30 @@ interface CompanyCardProps {
 export function CompanyCard({ company }: CompanyCardProps) {
   const initial = company.name.charAt(0).toUpperCase();
   const color = AVATAR_COLORS[hashCode(company.name) % AVATAR_COLORS.length];
+  const hasLogo = company.logoUrl != null;
 
   return (
     <Card className="hover:shadow-lg transition-shadow h-full flex flex-col">
       <CardContent className="p-5 flex flex-col flex-1">
-        {/* Header: Avatar + Name + Rating */}
+        {/* Header: Logo/Avatar + Name + Rating */}
         <div className="flex items-start gap-3 mb-3">
-          <div className={`${color} text-white w-11 h-11 rounded-lg flex items-center justify-center text-lg font-bold shrink-0`}>
+          {hasLogo ? (
+            <img
+              src={company.logoUrl!}
+              alt={company.name}
+              className="w-11 h-11 rounded-lg object-cover shrink-0 bg-gray-100"
+              loading="lazy"
+              onError={(e) => {
+                // Fall back to letter avatar on load error
+                const el = e.currentTarget;
+                el.style.display = "none";
+                el.nextElementSibling?.classList.remove("hidden");
+              }}
+            />
+          ) : null}
+          <div
+            className={`${color} text-white w-11 h-11 rounded-lg flex items-center justify-center text-lg font-bold shrink-0 ${hasLogo ? "hidden" : ""}`}
+          >
             {initial}
           </div>
           <div className="flex-1 min-w-0">
@@ -49,6 +78,27 @@ export function CompanyCard({ company }: CompanyCardProps) {
             )}
           </div>
         </div>
+
+        {/* Description */}
+        {company.description && (
+          <p className="text-xs text-gray-500 mb-3 line-clamp-2">{company.description}</p>
+        )}
+
+        {/* Services */}
+        {company.services?.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {company.services.slice(0, 3).map((svc) => (
+              <Badge key={svc} variant="secondary" className="text-xs py-0">
+                {SERVICE_LABELS[svc] || svc}
+              </Badge>
+            ))}
+            {company.services.length > 3 && (
+              <Badge variant="outline" className="text-xs py-0">
+                +{company.services.length - 3}
+              </Badge>
+            )}
+          </div>
+        )}
 
         {/* Contact info */}
         <div className="space-y-1.5 text-sm text-gray-600 mb-4 flex-1">
