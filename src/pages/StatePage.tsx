@@ -13,6 +13,7 @@ import {
 import { CompanyCard } from "@/components/directory/CompanyCard";
 import { Star, MapPin } from "lucide-react";
 import { getStateData, getCitiesInState, getCompaniesByCity } from "@/data/companies";
+import { Helmet } from "@/components/seo/Helmet";
 
 const StatePage = () => {
   const { state } = useParams();
@@ -37,8 +38,15 @@ const StatePage = () => {
     );
   }
 
+  const totalCompanies = cities.reduce((s, c) => s + c.companyCount, 0);
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet
+        title={`Water Treatment Companies in ${stateData.name} | ${cities.length} Cities | CWT`}
+        description={`Find ${totalCompanies} water treatment companies across ${cities.length} cities in ${stateData.name}. Compare ratings, reviews, and services. Free water testing available.`}
+        canonical={`/water-treatment/${stateSlug}`}
+      />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Hero */}

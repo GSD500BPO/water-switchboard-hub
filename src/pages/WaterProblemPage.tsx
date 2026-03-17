@@ -104,7 +104,7 @@ const WaterProblemPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet title={pageTitle} description={pageDesc} />
+      <Helmet title={pageTitle} description={pageDesc} canonical={`/water-problems/${stateSlug}/${citySlug}/${problemSlug}`} />
       {faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <Header />
       <main className="flex-1 bg-gray-50">

@@ -19,6 +19,7 @@ import {
   getStateData,
 } from "@/data/companies";
 import { SERVICES, getCompaniesByService, getCityWaterData, WATER_PROBLEMS } from "@/data/seoData";
+import { Helmet } from "@/components/seo/Helmet";
 
 const CityPage = () => {
   const { state, city } = useParams();
@@ -33,8 +34,17 @@ const CityPage = () => {
   // Nearby cities (same state, excluding current)
   const nearbyCities = getCitiesInState(stateSlug).filter((c) => c.slug !== citySlug);
 
+  const waterData = getCityWaterData(cityName);
+  const pageTitle = `Best Water Treatment Companies in ${cityName}, ${stateName} | CWT`;
+  const pageDesc = `Compare ${companies.length} water treatment companies in ${cityName}, ${stateName}. Read reviews, check ratings, and get free water testing. ${waterData ? `${cityName}'s water hardness: ${waterData.hardness}.` : ""}`;
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet
+        title={pageTitle}
+        description={pageDesc}
+        canonical={`/water-treatment/${stateSlug}/${citySlug}`}
+      />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

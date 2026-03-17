@@ -122,6 +122,7 @@ const CompanyPage = () => {
         title={pageTitle}
         description={pageDesc}
         image={company.logoUrl}
+        canonical={`/water-treatment/${stateSlug}/${citySlug}/${slug}`}
       />
       <SchemaMarkup company={company} />
       <Header />

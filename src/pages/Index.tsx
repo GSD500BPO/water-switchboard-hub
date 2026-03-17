@@ -12,6 +12,7 @@ import { DealerVideos } from "@/components/home/DealerVideos";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { LeadCapturePopup } from "@/components/LeadCapturePopup";
 import { useDealer } from "@/contexts/DealerContext";
+import { Helmet } from "@/components/seo/Helmet";
 
 const Index = () => {
   const [searchParams] = useSearchParams();
@@ -45,6 +46,23 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet
+        title="Community Water Test - Free Water Quality Testing & Treatment Directory"
+        description="Independent water quality data for your ZIP code. Compare 692+ water treatment companies across 22 cities. Free water testing services and homeowner guides."
+        canonical="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Community Water Test",
+          "url": "https://communitywatertest.org",
+          "description": "Independent water quality data and water treatment company directory",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://communitywatertest.org/water-treatment/{search_term}",
+            "query-input": "required name=search_term"
+          }
+        }}
+      />
       <Header />
       <main className="flex-1">
         <Hero />

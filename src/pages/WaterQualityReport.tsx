@@ -113,7 +113,7 @@ const WaterQualityReport = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet title={pageTitle} description={pageDesc} />
+      <Helmet title={pageTitle} description={pageDesc} canonical={`/water-quality/${citySlug}`} />
       <WaterQualitySchema cityName={cityName} stateName={stateName} data={waterData} />
       <Header />
       <main className="flex-1 bg-gray-50">

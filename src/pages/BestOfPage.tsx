@@ -133,7 +133,7 @@ const BestOfPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet title={pageTitle} description={pageDesc} />
+      <Helmet title={pageTitle} description={pageDesc} canonical={`/best-water-treatment/${stateSlug}/${citySlug}`} />
       <ItemListSchema companies={topCompanies} cityName={cityName} stateName={stateName} />
       <Header />
       <main className="flex-1 bg-gray-50">

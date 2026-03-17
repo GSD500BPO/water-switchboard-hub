@@ -105,6 +105,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--inspect", action="store_true", help="Inspect each URL")
     parser.add_argument("--limit", type=int, help="Limit URLs to inspect")
+    parser.add_argument("--skip", type=int, default=0, help="Skip first N URLs (resume)")
     args = parser.parse_args()
 
     print("Getting access tokens...")
@@ -117,34 +118,49 @@ def main():
     if args.inspect and URLS_FILE.exists():
         print(f"\nInspecting URLs for indexing...")
         idx_token = get_access_token(INDEXING_SCOPE)
-        urls = URLS_FILE.read_text().strip().split("\n")
+        all_urls = URLS_FILE.read_text().strip().split("\n")
+        if args.skip:
+            all_urls = all_urls[args.skip:]
+            print(f"  Skipping first {args.skip} URLs, {len(all_urls)} remaining")
         if args.limit:
-            urls = urls[:args.limit]
+            all_urls = all_urls[:args.limit]
 
         indexed = 0
         errors = 0
-        for i, page_url in enumerate(urls):
-            print(f"  [{i+1}/{len(urls)}] {page_url}", end="", flush=True)
+        total = len(all_urls)
+        for i, page_url in enumerate(all_urls):
+            num = i + 1 + args.skip
+            print(f"  [{num}/{total + args.skip}] {page_url}", end="", flush=True)
 
-            # Try Indexing API first (faster)
-            status = notify_indexing_api(idx_token, page_url)
-            if status == 200:
-                print(" -> notified")
-                indexed += 1
-            else:
-                # Fall back to URL inspection
-                result = inspect_url(wm_token, page_url)
-                if "error" in result:
-                    print(f" -> error: {result['error'][:60]}")
-                    errors += 1
-                else:
-                    verdict = result.get("inspectionResult", {}).get("indexStatusResult", {}).get("verdict", "?")
-                    print(f" -> {verdict}")
+            try:
+                # Try Indexing API first (faster)
+                status = notify_indexing_api(idx_token, page_url)
+                if status == 200:
+                    print(" -> notified")
                     indexed += 1
+                else:
+                    # Fall back to URL inspection
+                    result = inspect_url(wm_token, page_url)
+                    if "error" in result:
+                        print(f" -> error: {result['error'][:60]}")
+                        errors += 1
+                    else:
+                        verdict = result.get("inspectionResult", {}).get("indexStatusResult", {}).get("verdict", "?")
+                        print(f" -> {verdict}")
+                        indexed += 1
+            except Exception as e:
+                print(f" -> EXCEPTION: {e}")
+                errors += 1
 
             time.sleep(0.5)  # Rate limit
 
-        print(f"\nDone: {indexed} indexed, {errors} errors out of {len(urls)} URLs")
+            # Re-auth every 500 URLs to avoid token expiry
+            if (i + 1) % 500 == 0:
+                print("  Refreshing tokens...")
+                wm_token = get_access_token(SCOPE)
+                idx_token = get_access_token(INDEXING_SCOPE)
+
+        print(f"\nDone: {indexed} indexed, {errors} errors out of {total} URLs")
     else:
         print("\nSitemap submitted. Run with --inspect to also request indexing for each URL.")
 

@@ -157,7 +157,7 @@ const ServiceCityPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet title={pageTitle} description={pageDesc} />
+      <Helmet title={pageTitle} description={pageDesc} canonical={`/water-treatment/${stateSlug}/${citySlug}/services/${serviceSlug}`} />
       <ServiceSchema service={serviceSlug} cityName={cityName} stateName={stateName} companies={companies} />
       <Header />
       <main className="flex-1 bg-gray-50">
