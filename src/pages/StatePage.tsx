@@ -110,7 +110,9 @@ const StatePage = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                   {companies.slice(0, 4).map((company) => (
-                    <CompanyCard key={company.id} company={company} />
+                    <Link key={company.id} to={`/water-treatment/${stateSlug}/${city.slug}/${company.slug}`}>
+                      <CompanyCard company={company} />
+                    </Link>
                   ))}
                 </div>
               </div>

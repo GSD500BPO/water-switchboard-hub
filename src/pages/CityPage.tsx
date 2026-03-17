@@ -82,7 +82,9 @@ const CityPage = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {companies.map((company) => (
-                <CompanyCard key={company.id} company={company} />
+                <Link key={company.id} to={`/water-treatment/${stateSlug}/${citySlug}/${company.slug}`}>
+                  <CompanyCard company={company} />
+                </Link>
               ))}
             </div>
           )}

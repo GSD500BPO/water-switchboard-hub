@@ -12,6 +12,7 @@ import ScamAlerts from "./pages/ScamAlerts";
 import ScheduleTest from "./pages/ScheduleTest";
 import StatePage from "./pages/StatePage";
 import CityPage from "./pages/CityPage";
+import CompanyPage from "./pages/CompanyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/scam-alerts" element={<ScamAlerts />} />
               <Route path="/water-treatment/:state" element={<StatePage />} />
               <Route path="/water-treatment/:state/:city" element={<CityPage />} />
+              <Route path="/water-treatment/:state/:city/:company" element={<CompanyPage />} />
               <Route path="/schedule-test" element={<ScheduleTest />} />
               <Route path="/water-testing" element={<Navigate to="/schedule-test" replace />} />
               <Route path="/filters" element={<Navigate to="/" replace />} />
