@@ -20,6 +20,7 @@ import {
 } from "@/data/companies";
 import { SERVICES, getCompaniesByService, getCityWaterData, WATER_PROBLEMS } from "@/data/seoData";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 const CityPage = () => {
   const { state, city } = useParams();
@@ -45,6 +46,11 @@ const CityPage = () => {
         description={pageDesc}
         canonical={`/water-treatment/${stateSlug}/${citySlug}`}
       />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: stateName, url: `/water-treatment/${stateSlug}` },
+        { name: cityName, url: `/water-treatment/${stateSlug}/${citySlug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { Star, Phone, Globe, MapPin, Award, CheckCircle, ExternalLink } from "lucide-react";
 import {
   getCityName,
@@ -135,6 +136,12 @@ const BestOfPage = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet title={pageTitle} description={pageDesc} canonical={`/best-water-treatment/${stateSlug}/${citySlug}`} />
       <ItemListSchema companies={topCompanies} cityName={cityName} stateName={stateName} />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: stateName, url: `/water-treatment/${stateSlug}` },
+        { name: cityName, url: `/water-treatment/${stateSlug}/${citySlug}` },
+        { name: `Best Water Treatment`, url: `/best-water-treatment/${stateSlug}/${citySlug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

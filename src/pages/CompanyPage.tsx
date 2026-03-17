@@ -18,6 +18,7 @@ import {
 import type { Company } from "@/data/companies";
 import { CompanyCard } from "@/components/directory/CompanyCard";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { getCityWaterData, SERVICES, WATER_PROBLEMS } from "@/data/seoData";
 
 const SERVICE_LABELS: Record<string, string> = {
@@ -125,6 +126,12 @@ const CompanyPage = () => {
         canonical={`/water-treatment/${stateSlug}/${citySlug}/${slug}`}
       />
       <SchemaMarkup company={company} />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: stateName, url: `/water-treatment/${stateSlug}` },
+        { name: cityName, url: `/water-treatment/${stateSlug}/${citySlug}` },
+        { name: company.name, url: `/water-treatment/${stateSlug}/${citySlug}/${slug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

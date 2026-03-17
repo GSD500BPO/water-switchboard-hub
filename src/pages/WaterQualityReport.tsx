@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import {
   Droplets, AlertTriangle, CheckCircle, Shield, ArrowRight,
   Beaker, ThermometerSun, Activity,
@@ -115,6 +116,11 @@ const WaterQualityReport = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet title={pageTitle} description={pageDesc} canonical={`/water-quality/${citySlug}`} />
       <WaterQualitySchema cityName={cityName} stateName={stateName} data={waterData} />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: `Water Quality`, url: `/water-quality/${citySlug}` },
+        { name: cityName, url: `/water-quality/${citySlug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

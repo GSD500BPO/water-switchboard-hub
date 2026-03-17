@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CompanyCard } from "@/components/directory/CompanyCard";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { ArrowLeft, AlertTriangle, CheckCircle, Droplets, ArrowRight } from "lucide-react";
 import { getCityName, getStateData, getCompaniesByCity } from "@/data/companies";
 import { getProblemBySlug, getCompaniesForProblem, getCityWaterData, SERVICES, WATER_PROBLEMS } from "@/data/seoData";
@@ -106,6 +107,12 @@ const WaterProblemPage = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet title={pageTitle} description={pageDesc} canonical={`/water-problems/${stateSlug}/${citySlug}/${problemSlug}`} />
       {faqs.length > 0 && <FAQSchema faqs={faqs} />}
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: stateName, url: `/water-treatment/${stateSlug}` },
+        { name: cityName, url: `/water-treatment/${stateSlug}/${citySlug}` },
+        { name: problem.title, url: `/water-problems/${stateSlug}/${citySlug}/${problemSlug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}

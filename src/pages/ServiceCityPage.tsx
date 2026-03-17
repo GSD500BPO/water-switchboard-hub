@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CompanyCard } from "@/components/directory/CompanyCard";
 import { Helmet } from "@/components/seo/Helmet";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { ArrowLeft, Droplets, CheckCircle, Phone, Star } from "lucide-react";
 import {
   getCompaniesByCity,
@@ -159,6 +160,12 @@ const ServiceCityPage = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet title={pageTitle} description={pageDesc} canonical={`/water-treatment/${stateSlug}/${citySlug}/services/${serviceSlug}`} />
       <ServiceSchema service={serviceSlug} cityName={cityName} stateName={stateName} companies={companies} />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: stateName, url: `/water-treatment/${stateSlug}` },
+        { name: cityName, url: `/water-treatment/${stateSlug}/${citySlug}` },
+        { name: svc.label, url: `/water-treatment/${stateSlug}/${citySlug}/services/${serviceSlug}` },
+      ]} />
       <Header />
       <main className="flex-1 bg-gray-50">
         {/* Breadcrumb */}
