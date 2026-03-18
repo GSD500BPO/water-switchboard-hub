@@ -22,6 +22,8 @@ const ServiceCityPage = lazy(() => import("./pages/ServiceCityPage"));
 const BestOfPage = lazy(() => import("./pages/BestOfPage"));
 const WaterQualityReport = lazy(() => import("./pages/WaterQualityReport"));
 const WaterProblemPage = lazy(() => import("./pages/WaterProblemPage"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -59,6 +61,9 @@ const App = () => (
                 <Route path="/water-quality/:city" element={<WaterQualityReport />} />
                 <Route path="/water-problems/:state/:city/:problem" element={<WaterProblemPage />} />
                 <Route path="/schedule-test" element={<ScheduleTest />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/blog/category/:category" element={<Blog />} />
                 <Route path="/water-testing" element={<Navigate to="/schedule-test" replace />} />
                 <Route path="/filters" element={<Navigate to="/" replace />} />
                 <Route path="/privacy" element={<Navigate to="/" replace />} />

@@ -85,6 +85,12 @@ export function Header() {
           >
             {t("nav.scamAlerts")}
           </Link>
+          <Link
+            to="/blog"
+            className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
+            Blog
+          </Link>
         </nav>
 
         {/* CTA + Language */}
