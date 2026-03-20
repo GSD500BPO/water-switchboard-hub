@@ -4,8 +4,8 @@ import { ArrowLeft, Calendar, Clock, User, Share2, Bookmark } from 'lucide-react
 import { getBlogPostBySlug, getRelatedPosts } from '@/data/blog';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { Helmet } from '@/components/seo/Helmet';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 
 // Parse markdown-like content to React elements

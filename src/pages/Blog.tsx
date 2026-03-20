@@ -6,8 +6,8 @@ import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogSearchBar } from '@/components/blog/BlogSearchBar';
 import { BlogCategoryFilter } from '@/components/blog/BlogCategoryFilter';
 import { Helmet } from '@/components/seo/Helmet';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 const Blog = () => {
   const { category } = useParams<{ category?: string }>();
