@@ -1,0 +1,3 @@
+## Is Your Denver Tap Water Truly Pure? Exploring Solutions with Home Water Purification Systems
+
+Denver, the Mile High City, boasts a reputation for stunning mountain vistas and a vibrant urban core. When it comes to water, residents often hear that their supply is pristine, fed by Rocky Mountain snowmelt. While it's true that Denver's water starts naturally soft, the journey from mountain to tap can

@@ -1,0 +1,3 @@
+## Is Your NYC Water Safe? An Independent Review of Water Treatment Systems (Hurricane Home Solutions)
+
+New York City's tap water often earns high marks, drawn directly from upstate reservoirs and generally considered soft and palatable. However, this seemingly pristine source can encounter challenges before it reaches your glass. The primary concern for many New Yorkers isn't the municipal supply itself, but the **aging infrastructure within

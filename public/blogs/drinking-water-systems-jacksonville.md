@@ -1,0 +1,3 @@
+## Battling Jacksonville's Tap Water: An Honest Look at Drinking Water Systems
+
+Jacksonville, a vibrant hub in Northeast Florida, boasts natural beauty, but its local tap water often presents unique challenges for residents. Drawn primarily from the vast Floridan Aquifer, this groundwater carries a natural cocktail of minerals that, while not always a health concern, can significantly impact the taste, smell, and appearance

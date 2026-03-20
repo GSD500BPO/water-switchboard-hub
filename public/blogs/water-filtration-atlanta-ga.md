@@ -1,0 +1,3 @@
+## Improving Atlanta's Water: An Honest Look at Water Filtration Atlanta GA
+
+Atlanta, Georgia, a bustling hub with a distinct Southern charm, relies primarily on the Chattahoochee River for its municipal water supply. While the city's water treatment facilities diligently work to deliver safe drinking water, residents frequently notice certain characteristics that prompt them to seek further in-home treatment. A common characteristic

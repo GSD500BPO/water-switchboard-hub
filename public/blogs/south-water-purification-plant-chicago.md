@@ -1,0 +1,3 @@
+## Understanding Chicago's Water: The Vital Role of the South Water Purification Plant
+
+Chicago, a city renowned for its stunning architecture and vibrant culture, also boasts access to one of the world's largest freshwater reserves: Lake Michigan. While the source water is generally of high quality, delivering it safely to millions of taps across the metropolitan area is a monumental task. This is where critical infrastructure like the

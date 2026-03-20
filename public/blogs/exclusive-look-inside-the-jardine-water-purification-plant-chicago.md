@@ -1,0 +1,3 @@
+## Is Your Chicago Tap Water Truly Safe? An Independent Look at Water Testing with Exclusive look inside the Jardine Water Purification Plant
+
+Chicago, a city renowned for its stunning architecture and vibrant culture, draws its drinking water from the vast expanse of Lake Michigan. While the city's sophisticated treatment facilities work tirelessly to deliver clean water, a persistent concern lingers beneath the surface for many residents: the aging infrastructure

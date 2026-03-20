@@ -1,0 +1,3 @@
+## Beyond the Tap: Navigating New York's Water Quality with Water Softener Installation
+
+New York City boasts a world-renowned water supply, sourced from pristine upstate reservoirs, often celebrated for its naturally soft profile. Yet, for many New Yorkers, the story doesn't end there. The city's extensive, aging infrastructure, while historic, can introduce unwanted elements like lead into drinking water

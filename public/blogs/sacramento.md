@@ -1,0 +1,3 @@
+## Ensuring Pristine Water in the Capital City: A Look at Sacramento Water Treatment
+
+Sacramento, a city blessed by the confluence of the American and Sacramento Rivers, enjoys a relatively soft water supply. Yet, like any major metropolitan area relying on surface water, its quality isn't static. Seasonal agricultural runoff from the surrounding fertile lands can introduce various substances into the rivers, affecting the water

@@ -1,0 +1,3 @@
+## Tackling Orlando's Water Challenges: A Deep Dive into Clean Drinking Water
+
+Orlando, the sunny heart of Central Florida, is famous for its attractions and vibrant lifestyle. Yet, beneath the surface glamour, many residents encounter a different kind of local reality: pervasive water quality issues. From the nagging problem of hard water scale to the unpleasant sulfurous odor that can permeate a home, these challenges are
