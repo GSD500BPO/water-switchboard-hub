@@ -1,0 +1,3 @@
+## Navigating Austin's Water: A Look at Services, Your Local Treatment Option
+
+Austin, a city celebrated for its vibrant culture and beautiful natural surroundings, draws its drinking water primarily from the Colorado River and Lake Travis. While generally safe, this source presents some unique characteristics for residents: it's known to be **moderately hard**, and its mineral content can experience **seasonal fluctuations**.

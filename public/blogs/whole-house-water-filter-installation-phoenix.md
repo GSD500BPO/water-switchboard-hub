@@ -1,0 +1,3 @@
+## Addressing Phoenix's Water Challenges: A Look at Whole House Water Filter Installation
+
+Phoenix, the Valley of the Sun, is renowned for its vibrant desert landscape and warm climate. However, beneath the surface, residents often grapple with specific water quality challenges that go beyond simple hydration. Sourced primarily from the Salt and Verde Rivers, and supplemented by the Colorado River, Phoenix's water

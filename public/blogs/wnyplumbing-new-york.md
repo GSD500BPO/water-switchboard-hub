@@ -1,0 +1,5 @@
+## Wnyplumbing: Raising the Bar for Water Softener Installation in Western New York
+
+When it comes to home services, a company's reputation often speaks volumes. For residents and businesses across Western New York, Wnyplumbing has clearly struck a chord, boasting an impressive **5.0 out of 5-star Google rating from 29 reviews**. This isn't just a number; it's a testament to consistent quality and customer satisfaction in the specialized field of water softener installation.
+
+While the broader context of **New York State's water quality** often points to New York City's generally soft water from upstate reservoirs, the reality for homeowners in areas like Buffalo, Lancaster, Cheektowaga, Clarence, Amherst, and West Seneca, NY, can be quite different. Beyond local variations in hardness, a universal concern across older infrastructure, including many homes in Western New York, is the potential for aging pipes to introduce contaminants like lead. While water softeners do not

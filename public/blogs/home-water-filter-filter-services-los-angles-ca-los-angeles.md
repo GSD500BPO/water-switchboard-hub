@@ -1,0 +1,3 @@
+## Tackling LA’s Tap Water: An Honest Look at Home Water Filter, Filter Services
+
+Los Angeles: a city of sunshine, stars, and... surprisingly complex water. For residents concerned about what flows from their taps, understanding the journey of LA's water and the options for improving its quality is crucial. The sprawling metropolis sources its water from a vast network, primarily drawing from the distant

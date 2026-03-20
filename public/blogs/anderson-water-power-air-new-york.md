@@ -1,0 +1,3 @@
+## Trust & Tap Water: Why New Yorkers Turn to Anderson Water-Power-Air
+
+New York City's water, sourced from pristine upstate reservoirs, is celebrated for its quality, often described as naturally soft. Yet, beneath the surface of this reputation lies a more complex reality for many homeowners: aging infrastructure. While the water itself starts clean, the journey through decades-old pipes can introduce unwelcome
